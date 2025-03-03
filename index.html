@@ -3,22 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>C’Groovy</title>
+    <title>C’Groovy Music</title>
     <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    <nav class="nav-bar">
-        <ul class="nav-list">
-            <li class="logo">
-                <a href="">
-                    <img class="logo" src="./static/image/BNCC BINUS BLUE.png" alt="">
-                </a>
-            </li>
-            <li class="new-item"><a href="">Home</a></li>
-            <li class="new-item"><a href="">About</a></li>
-            <li class="new-item"><a href="">Collection</a></li>
-            <li class="new-item"><a href="">Register</a></li>
-        </ul>
-    </nav>
+    <!-- Headerr -->
+    <header>
+        <div class="logo">
+            <a href="#">
+                <img src="./static/image/SVG/C'Groovy Logo White.svg" alt="Logo">
+            </a>
+        </div>
+        <div class="search">
+            <label for="search">Search</label>
+            <input type="text" placeholder="Search">
+            <button type="submit">Search</button>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#">About Us</a></li>
+                <li>
+                    <a href="#">Songs ▼</a>
+                    <ul class="dropdown">
+                        <li><a href="#">Pop</a></li>
+                        <li><a href="#">R&B</a></li>
+                        <li><a href="#">K-Pop</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Register</a></li>
+            </ul>
+        </nav>
+    </header>
 </body>
 </html>
