@@ -3,23 +3,38 @@
     margin: 0; 
     padding: 0; 
     box-sizing: border-box;
-    background: #1b1b1b;
-    color: white;
+    color: black;
     font-family: 'Poppins', sans-serif;
 }
 
-header { 
+header.cgroovy-header { 
+    position: sticky;
     display: flex; 
     justify-content: space-between; 
-    background: red;
+    background: #ffffff;
     align-items: center;
-    padding: 20px;
     height: 64px;
+    padding: 0px 48px;
+    border-bottom: 1px solid rgb(200, 206, 211);
+    z-index: 10;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.company-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .logo { 
-    display: flex; 
-    align-items: center; 
+    display: flex;
+    align-items: center;
 }
 
 .logo img{ 
@@ -27,62 +42,73 @@ header {
     height: 32px;
 }
 
-/* Main Container */
-body {
-    display: flex;
-    flex-direction: column;
-    height: 100vh; 
+.logo a { 
+    display: inline-block;
+    height: 32px;
 }
 
-main {
-    display: flex;
-    flex: 1;
+.company-name { 
+    font-weight: bold;
+    font-size: 20px;
 }
 
-.main-container {
-    display: flex;
-    flex: 1;
+.search-bar { 
+    width: 40%;
+
 }
 
-#sidebar {
-    width: 240px;
-    background: #333;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.search-bar input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
 }
 
-.sidebar-menu ul {
+.nav-bar ul { 
+    display: flex; 
     list-style: none;
-    padding: 0;
+    gap: 20px;
+    font-weight: 600;
 }
 
-.sidebar-menu li {
-    margin-bottom: 10px;
-}
-
-.sidebar-menu a {
-    color: white;
+.nav-bar a{ 
     text-decoration: none;
-    font-size: 18px;
+    color: black;
 }
 
-main {
+.nav-bar :hover { 
+    color: #de1b28;
+}
+
+.sign-in button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #de1b28;
+    color: #ffffff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.sign-in button:hover {
+    color: #616060;
+    background-color: #f0f0f0;
+}
+
+/* Main */
+main.cgroovy-main {
+    display: flex;
     flex: 1;
-    padding: 20px;
-    background: #444;
-    overflow-y: auto; /* Scrollable content */
+    overflow-y: auto;
+    min-height: 100vh;
 }
 
 .main-content {
-    padding: 20px;
+    padding: 48px;
 }
 
 /* Footer */
-footer {
-    background: #222;
-    color: white;
+footer.cgroovy-footer {
     text-align: center;
     padding: 10px;
 }

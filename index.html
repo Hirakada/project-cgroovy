@@ -5,48 +5,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C’Groovy Music</title>
     <link rel="stylesheet" href="./main.css">
-    <link rel="icon" href="./static/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml">
+    <link rel="icon" href="./static/image/SVG/C'Groovy Logo Black.svg" type="image/svg+xml" media="(prefers-color-scheme: light")>
+    <link rel="icon" href="./static/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark")>
 </head>
 <body>
     <!-- Navigation Bar -->
-    <header>
-        <div class="logo">
-            <a href="#">
-                <img src="./static/image/SVG/C'Groovy Logo White.svg" alt="Logo">
-            </a>
-        </div>
-        <div class="search-bar">
-            <input type="text" placeholder="Search">
-        </div>
-        <div class="sign-in">
-            <a href="#">
-                <button type="button">Sign In</button>
-            </a>
+    <header class="cgroovy-header">
+        <div class="header-content">
+            <div class="company-wrapper">
+                <div class="logo">
+                    <a href="#">
+                        <img src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Logo">
+                    </a>
+                </div>
+                <div class="company-name">C'Groovy Music</div>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+            </div>
+            <nav class="nav-bar">
+                <ul class="menu-items">
+                    <li><a href="#">Song</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <div class="sign-in">
+                <a href="#">
+                    <button class="sign-in" type="button">SIGN IN</button>
+                </a>
+            </div>
         </div>
     </header>
-    <div class="main-container">
-        <!-- Side Bar -->
-        <nav id="sidebar">
-            <div class="sidebar-menu">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Settings</a></li>
-                </ul>
-            </div>
-        </nav>
-        <!-- Main Content -->
-        <main>
-            <div class="main-content">
-                <h1>Welcome to C’Groovy Music</h1>
-                <p>Your main content goes here.</p>
-            </div>
-        </main>
-    </div>
+    <!-- Main Content -->
+    <main class="cgroovy-main">
+        <div class="main-content">
+            <h1>Welcome to C’Groovy Music</h1>
+            <p>Your main content goes here.</p>
+        </div>
+    </main>
     <!-- Footer -->
-    <footer>
+    <footer class="cgroovy-footer">
         <div class="footer-content">
-            <p>&copy; 2020 C’Groovy Music</p>
+            <p class="copyright">&copy; 2020 C’Groovy Music</p>
         </div>
     </footer>
 </body>
