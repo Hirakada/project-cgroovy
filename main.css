@@ -7,8 +7,18 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
 header.cgroovy-header { 
     position: sticky;
+    top: 0;
     display: flex; 
     justify-content: space-between; 
     background: #ffffff;
@@ -54,7 +64,6 @@ header.cgroovy-header {
 
 .search-bar { 
     width: 40%;
-
 }
 
 .search-bar input {
@@ -76,7 +85,7 @@ header.cgroovy-header {
     color: black;
 }
 
-.nav-bar :hover { 
+.nav-bar a:hover { 
     color: #de1b28;
 }
 
@@ -111,4 +120,80 @@ main.cgroovy-main {
 footer.cgroovy-footer {
     text-align: center;
     padding: 10px;
+}
+
+/* about.html */
+body.about-page #about-us {
+    color: #de1b28;
+}
+
+/* sign-in.html */
+body.sign-in-page .video-overlay{
+    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.1));
+    position: fixed;
+    width: 100dvw;
+    height: 100dvh;
+    z-index: -3;
+}
+
+body.sign-in-page #bg-video {
+    position: fixed;
+    object-fit: cover;
+    z-index: -5;
+}
+
+body.sign-in-page header.cgroovy-header {
+    background: rgba(255, 253, 252, 0.1);
+    border-bottom: 1px solid rgba(200, 206, 211, 0.8);
+}
+
+body.sign-in-page main.cgroovy-main {
+    min-height: 85vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.sign-in-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 32px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    padding: 16px;
+    width: 25dvw;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    background: transparent;
+    border-radius: 4px;
+    width: 300px;
+    height: 40px;
+}
+
+button.sign-in{
+    height: 40px;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    background-color: #de1b28;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: medium;
+    cursor: pointer;
 }
