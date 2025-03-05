@@ -172,18 +172,28 @@ body.sign-in-page #bg-video {
     z-index: -1;
 }
 
-body.sign-in-page header.cgroovy-header {
-    background: rgba(255, 255, 255, 0.2);
-    border-bottom: none;
-}
-
 body.sign-in-page main.cgroovy-main {
     min-height: 85vh;
     justify-content: center;
     align-items: center;
 }
 
-.sign-in-container{
+body.sign-in-page main img{
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: auto;
+    position: absolute;
+    padding: 10px;
+    top: -50px;
+    left: 50%;
+    background-color: #ffffff;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+.container{
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -192,16 +202,23 @@ body.sign-in-page main.cgroovy-main {
     border: 1px solid #e0e0e0;
     padding: 16px;
     width: 25dvw;
-    background: rgba(255, 255, 255, 1);
+    background: #ffffff;
+    margin-top: 40px;
 }
 
-.sign-in-form {
-    width: 100%;
+.form {
+    width: 80%;
 }
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;}
+
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
 }
 
 .input-group {
@@ -210,8 +227,6 @@ body.sign-in-page main.cgroovy-main {
     position: relative;
 }
 
-
-
 .input-group input {
     flex: 1;
     padding: 8px;
@@ -219,8 +234,9 @@ body.sign-in-page main.cgroovy-main {
     background: transparent;
     border: 1px solid #e0e0e0;
     border-radius: 4px;
-    width: 300px;
     height: 40px;
+    transition: border-color .1s ease-out;
+    box-sizing: border-box;
 }
 
 .input-group .mdi--email,
@@ -230,14 +246,15 @@ body.sign-in-page main.cgroovy-main {
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-    color: #888;
 }
 
 .input-group input:focus {
-    border-color: #de1b28;
+    font-weight: 600;
+    color: #de1b28;
+    outline: none; border: #de1b28 2px solid
 }
 
-button.sign-in{
+button#sign-in, button#sign-up {
     height: 40px;
     width: 100%;
     border: none;
@@ -256,7 +273,7 @@ button.sign-in{
     height: 24px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='1b1b1b' d='M12 17a2 2 0 0 0 2-2a2 2 0 0 0-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d7d7d7' d='M12 17a2 2 0 0 0 2-2a2 2 0 0 0-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3'/%3E%3C/svg%3E");
 }
 
 .input-group input:focus + .mdi--password {
@@ -270,9 +287,77 @@ button.sign-in{
     height: 24px;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='1b1b1b' d='M20 8V6l-8 5l-8-5v2l8 5l8-5m0-4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d7d7d7' d='M20 8V6l-8 5l-8-5v2l8 5l8-5m0-4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16z'/%3E%3C/svg%3E");
 }
 
 .input-group input:focus + .mdi--email{
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z'/%3E%3C/svg%3E");
+}
+
+p#forgot-password{
+    font-size: x-small;
+}
+
+.sign-up-button{
+    color: #de1b28;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.sign-up-button:hover{
+    font-weight: bold;
+}
+
+body.sign-in-page .footer-content p{
+    color: #f0f0f0;
+}
+
+/* collection.html */
+body.collection-page main{
+    overflow-x: hidden;
+}
+
+body.collection-page section{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 200px;
+    background: red;
+    max-width: 100%;
+}
+
+body.collection-page .song-list{
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: center;
+    overflow-x: auto;
+}
+
+body.collection-page .collection-card{
+    display: flex;
+    flex-direction: row;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #616060;
+    padding: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    width: 240px;
+}
+
+body.collection-page img.song-cover{
+    width: 84px;
+    height: 84px;
+}
+
+p.song-name{
+    font-weight: bold;
+}
+
+p.description{
+    font-size: 10px;
+    font-style: italic;
 }

@@ -15,39 +15,32 @@
         </video>
         <div class="video-overlay"></div>
     </div>
-    <!-- Navigation Bar -->
-    <header class="cgroovy-header">
-        <div class="header-content">
-            <div class="company-wrapper">
-                <div class="logo">
-                    <a id="home" href="index.html">
-                        <img src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Logo">
-                    </a>
-                </div>
-                <div class="company-name">C'Groovy Music</div>
-            </div>
-        </div>
-    </header>
     <!-- Main Content -->
     <main class="cgroovy-main">
         <div class="main-content">
-            <div class="sign-in-container">
+            <div class="container" id="sign-in">
+                <div class="logo">
+                    <img class="logo" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="C'Groovy Logo">
+                </div>
                 <h1>Sign In</h1>
-                <form class="sign-in-form" action="#" method="post">
-                    <div class="form-group">
-                        <div class="input-group" id="email-group">
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                            <span class="mdi mdi--email"></span>
+                <form class="form" id="sign-in" action="#" method="post">
+                    <div class="form-container">
+                        <div class="form-group">
+                            <div class="input-group" id="email-group">
+                                <input type="email" id="email" name="email" placeholder="Email" required>
+                                <span class="mdi mdi--email"></span>
+                            </div>
+                            <div class="input-group" id="password-group">
+                                <input type="password" id="password" name="password" placeholder="Password" required>
+                                <span class="mdi--password"></span>
+                            </div>
+                            <p id="forgot-password">Forgot password?</p>
                         </div>
-                        <div class="input-group" id="password-group">
-                            <input type="password" id="password" name="password" placeholder="Password" required>
-                            <span class="mdi--password"></span>
-                        </div>
-                        <button type="submit" class="sign-in">Sign In</button>
+                        <button type="submit" class="button" id="sign-in">Sign In</button>
                     </div>
                 </form>
                 <div class="no-account">
-                    <p>Don't have an account? <a href="sign-up.html">Sign Up</a></p>
+                    <p>Don't have an account? <a class="sign-up-button" href="sign-up.html">Sign Up</a></p>
                 </div>
             </div>
         </div>
