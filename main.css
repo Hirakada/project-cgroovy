@@ -14,6 +14,38 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    position: relative; 
+    overflow: hidden;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#bg-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5));
+    z-index: 1;
 }
 
 header.cgroovy-header { 
@@ -21,11 +53,12 @@ header.cgroovy-header {
     top: 0;
     display: flex; 
     justify-content: space-between; 
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.3);
     align-items: center;
+    height: 64px;
     padding: 0px 48px;
-    border-bottom: 1px solid rgb(200, 206, 211);
-    z-index: 5;
+    border-bottom: 1px solid rgba(200, 206, 211, 1);
+    z-index: 10;
 }
 
 .header-content {
@@ -129,22 +162,19 @@ body.about-page #about-us {
 
 /* sign-in.html */
 body.sign-in-page .video-overlay{
-    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.1));
-    position: fixed;
-    width: 100dvw;
-    height: 100dvh;
-    z-index: -3;
+    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5));
 }
 
 body.sign-in-page #bg-video {
     position: fixed;
     object-fit: cover;
-    z-index: -5;
+    transform: translate(-50%, -50%);
+    z-index: -1;
 }
 
 body.sign-in-page header.cgroovy-header {
-    background: rgba(255, 253, 252, 0.1);
-    border-bottom: 1px solid rgba(200, 206, 211, 0.8);
+    background: rgba(255, 255, 255, 0.2);
+    border-bottom: none;
 }
 
 body.sign-in-page main.cgroovy-main {
@@ -160,11 +190,14 @@ body.sign-in-page main.cgroovy-main {
     gap: 32px;
     border-radius: 10px;
     border: 1px solid #e0e0e0;
-    background-color: #ffffff;
     padding: 16px;
     width: 25dvw;
+    background: rgba(255, 255, 255, 1);
 }
 
+.sign-in-form {
+    width: 100%;
+}
 .form-group {
     display: flex;
     flex-direction: column;
@@ -174,16 +207,34 @@ body.sign-in-page main.cgroovy-main {
 .input-group {
     display: flex;
     flex-direction: row;
+    position: relative;
 }
+
+
 
 .input-group input {
     flex: 1;
     padding: 8px;
-    border: 1px solid #e0e0e0;
+    padding-left: 40px;
     background: transparent;
+    border: 1px solid #e0e0e0;
     border-radius: 4px;
     width: 300px;
     height: 40px;
+}
+
+.input-group .mdi--email,
+.input-group .mdi--password {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #888;
+}
+
+.input-group input:focus {
+    border-color: #de1b28;
 }
 
 button.sign-in{
@@ -196,4 +247,32 @@ button.sign-in{
     font-weight: 600;
     font-size: medium;
     cursor: pointer;
+}
+
+.mdi--password {
+    display: inline-block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='1b1b1b' d='M12 17a2 2 0 0 0 2-2a2 2 0 0 0-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3'/%3E%3C/svg%3E");
+}
+
+.input-group input:focus + .mdi--password {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M12 17a2 2 0 0 0 2-2a2 2 0 0 0-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3'/%3E%3C/svg%3E");
+}
+
+.mdi--email {
+    display: inline-block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='1b1b1b' d='M20 8V6l-8 5l-8-5v2l8 5l8-5m0-4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16z'/%3E%3C/svg%3E");
+}
+
+.input-group input:focus + .mdi--email{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z'/%3E%3C/svg%3E");
 }
