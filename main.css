@@ -1,4 +1,4 @@
-/* Header */
+/* General Styles */
 *{ 
     margin: 0; 
     padding: 0; 
@@ -18,13 +18,17 @@ body {
     overflow: hidden;
 }
 
-.video-background {
+/* Video Background */
+.video-background, .video-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     overflow: hidden;
+}
+
+.video-background {
     z-index: -1;
 }
 
@@ -39,15 +43,11 @@ body {
 }
 
 .video-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5));
     z-index: 1;
 }
 
+/* Header */
 header.cgroovy-header { 
     position: sticky;
     top: 0;
@@ -69,25 +69,18 @@ header.cgroovy-header {
     height: 64px;
 }
 
-.company-wrapper {
+.company-wrapper, .logo {
     display: flex;
     align-items: center;
     gap: 8px;
 }
 
-.logo { 
-    display: flex;
-    align-items: center;
+.logo img, .logo a { 
+    height: 32px;
 }
 
-.logo img{ 
+.logo img { 
     width: auto;
-    height: 32px;
-}
-
-.logo a { 
-    display: inline-block;
-    height: 32px;
 }
 
 .company-name { 
@@ -95,15 +88,40 @@ header.cgroovy-header {
     font-size: 20px;
 }
 
-.search-bar { 
+.search-bar {
+    display: inline-flex;
     width: 40%;
 }
 
 .search-bar input {
+    flex: 1;
     width: 100%;
-    padding: 8px;
+    padding-left: 38px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
+    height: 40px;
+}
+
+.fa--search{
+    display: inline-block;
+    margin-left: 10px;
+    width: 18px;
+    height: 18px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    z-index: 1;
+}
+
+.fa--search {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1664 1664'%3E%3Cpath fill='%23616060' d='M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90'/%3E%3C/svg%3E");
+}
+
+.search-bar input:focus + .fa--search {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1664 1664'%3E%3Cpath fill='%23de1b28' d='M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90'/%3E%3C/svg%3E");   
 }
 
 .nav-bar ul { 
@@ -133,7 +151,7 @@ header.cgroovy-header {
 }
 
 .sign-in button:hover {
-    color: #616060;
+    color: #de1b28;
     background-color: #f0f0f0;
 }
 
@@ -155,30 +173,30 @@ footer.cgroovy-footer {
     padding: 10px;
 }
 
-/* about.html */
+/* About Page */
 body.about-page #about-us {
     color: #de1b28;
 }
 
-/* sign-in.html */
-body.sign-in-page .video-overlay{
+/* Sign-in and Sign-up Pages */
+.video-overlay{
     background: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5));
 }
 
-body.sign-in-page #bg-video {
+#bg-video {
     position: fixed;
     object-fit: cover;
     transform: translate(-50%, -50%);
     z-index: -1;
 }
 
-body.sign-in-page main.cgroovy-main {
+body.sign-in-page main.cgroovy-main, body.sign-up-page main.cgroovy-main {
     min-height: 85vh;
     justify-content: center;
     align-items: center;
 }
 
-body.sign-in-page main img{
+body.sign-in-page main img, body.sign-up-page main img{
     align-items: center;
     justify-content: center;
     width: 100px;
@@ -203,7 +221,6 @@ body.sign-in-page main img{
     padding: 16px;
     width: 25dvw;
     background: #ffffff;
-    margin-top: 40px;
 }
 
 .form {
@@ -213,7 +230,8 @@ body.sign-in-page main img{
 .form-container {
     display: flex;
     flex-direction: column;
-    gap: 24px;}
+    gap: 24px;
+}
 
 .form-group {
     display: flex;
@@ -225,11 +243,12 @@ body.sign-in-page main img{
     display: flex;
     flex-direction: row;
     position: relative;
+    width: 100%;
 }
 
 .input-group input {
     flex: 1;
-    padding: 8px;
+    width: 100%;
     padding-left: 40px;
     background: transparent;
     border: 1px solid #e0e0e0;
@@ -237,21 +256,88 @@ body.sign-in-page main img{
     height: 40px;
     transition: border-color .1s ease-out;
     box-sizing: border-box;
+    color: #616060;
+    z-index: 1;
 }
 
-.input-group .mdi--email,
-.input-group .mdi--password {
+#gender-group {
+    gap: 4px;
+}
+
+.mdi--email,
+.mdi--password,
+.mdi--user,
+.mdi--face-male,
+.mdi--face-female {
+    display: inline-block;
+    margin-left: 10px;
+    width: 24px;
+    height: 24px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
     position: absolute;
-    left: 10px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
+    z-index: 0;
 }
 
-.input-group input:focus {
+input:focus {
     font-weight: 600;
     color: #de1b28;
     outline: none; border: #de1b28 2px solid
+}
+
+input#gender-male:focus, input#gender-female:focus{
+    color: #de1b28;
+}
+
+input.gender:hover{
+    outline: none; border: #de1b28 2px solid;
+    cursor: pointer;
+}
+
+.mdi--user {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d9d7d7' d='M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4'/%3E%3C/svg%3E");
+}
+
+.input-group input:focus + .mdi--user {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M12 4a4 4 0 0 1 4 4a4 4 0 0 1-4 4a4 4 0 0 1-4-4a4 4 0 0 1 4-4m0 10c4.42 0 8 1.79 8 4v2H4v-2c0-2.21 3.58-4 8-4'/%3E%3C/svg%3E");
+}
+
+.mdi--face-male {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d9d7d7' d='M9 11.75A1.25 1.25 0 0 0 7.75 13A1.25 1.25 0 0 0 9 14.25A1.25 1.25 0 0 0 10.25 13A1.25 1.25 0 0 0 9 11.75m6 0A1.25 1.25 0 0 0 13.75 13A1.25 1.25 0 0 0 15 14.25A1.25 1.25 0 0 0 16.25 13A1.25 1.25 0 0 0 15 11.75M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18c-4.41 0-8-3.59-8-8c0-.29 0-.58.05-.86c2.36-1.05 4.23-2.98 5.21-5.37a9.97 9.97 0 0 0 10.41 3.97c.21.71.33 1.47.33 2.26c0 4.41-3.59 8-8 8'/%3E%3C/svg%3E");
+}
+
+.input-group input:focus + .mdi--face-male {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M9 11.75A1.25 1.25 0 0 0 7.75 13A1.25 1.25 0 0 0 9 14.25A1.25 1.25 0 0 0 10.25 13A1.25 1.25 0 0 0 9 11.75m6 0A1.25 1.25 0 0 0 13.75 13A1.25 1.25 0 0 0 15 14.25A1.25 1.25 0 0 0 16.25 13A1.25 1.25 0 0 0 15 11.75M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18c-4.41 0-8-3.59-8-8c0-.29 0-.58.05-.86c2.36-1.05 4.23-2.98 5.21-5.37a9.97 9.97 0 0 0 10.41 3.97c.21.71.33 1.47.33 2.26c0 4.41-3.59 8-8 8'/%3E%3C/svg%3E");
+}
+.input-group input:hover + .mdi--face-male {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M9 11.75A1.25 1.25 0 0 0 7.75 13A1.25 1.25 0 0 0 9 14.25A1.25 1.25 0 0 0 10.25 13A1.25 1.25 0 0 0 9 11.75m6 0A1.25 1.25 0 0 0 13.75 13A1.25 1.25 0 0 0 15 14.25A1.25 1.25 0 0 0 16.25 13A1.25 1.25 0 0 0 15 11.75M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18c-4.41 0-8-3.59-8-8c0-.29 0-.58.05-.86c2.36-1.05 4.23-2.98 5.21-5.37a9.97 9.97 0 0 0 10.41 3.97c.21.71.33 1.47.33 2.26c0 4.41-3.59 8-8 8'/%3E%3C/svg%3E");
+}
+
+.mdi--face-female {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d9d7d7' d='M13.75 13a1.25 1.25 0 1 1 2.5 0a1.25 1.25 0 0 1-2.5 0M22 12v10H2V12C2 6.5 6.5 2 12 2s10 4.5 10 10M4 12c0 4.41 3.59 8 8 8s8-3.59 8-8c0-.79-.12-1.55-.33-2.26A9.97 9.97 0 0 1 9.26 5.77c-.98 2.39-2.85 4.32-5.21 5.37c-.05.28-.05.57-.05.86m5 2.25a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5'/%3E%3C/svg%3E");
+}
+
+.input-group input:focus + .mdi--face-female {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M13.75 13a1.25 1.25 0 1 1 2.5 0a1.25 1.25 0 0 1-2.5 0M22 12v10H2V12C2 6.5 6.5 2 12 2s10 4.5 10 10M4 12c0 4.41 3.59 8 8 8s8-3.59 8-8c0-.79-.12-1.55-.33-2.26A9.97 9.97 0 0 1 9.26 5.77c-.98 2.39-2.85 4.32-5.21 5.37c-.05.28-.05.57-.05.86m5 2.25a1.25 1.25 0 1 0 0-2.5a1.25 1.25 0 0 0 0 2.5'/%3E%3C/svg%3E");
+}
+
+.mdi--password {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d7d7d7' d='M12 17a2 2 0 0 0 2-2a2 2 0 0 0-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3'/%3E%3C/svg%3E");
+}
+
+.input-group input:focus + .mdi--password {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M12 17a2 2 0 0 0 2-2a2 2 0 0 0-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3'/%3E%3C/svg%3E");
+}
+
+.mdi--email {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d7d7d7' d='M20 8V6l-8 5l-8-5v2l8 5l8-5m0-4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16z'/%3E%3C/svg%3E");
+}
+
+.input-group input:focus + .mdi--email{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z'/%3E%3C/svg%3E");
 }
 
 button#sign-in, button#sign-up {
@@ -266,53 +352,36 @@ button#sign-in, button#sign-up {
     cursor: pointer;
 }
 
-.mdi--password {
-    display: inline-block;
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d7d7d7' d='M12 17a2 2 0 0 0 2-2a2 2 0 0 0-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3'/%3E%3C/svg%3E");
+button#sign-in:hover, button#sign-up:hover{
+    color: #de1b28;
+    background-color: #f0f0f0;
 }
 
-.input-group input:focus + .mdi--password {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M12 17a2 2 0 0 0 2-2a2 2 0 0 0-2-2a2 2 0 0 0-2 2a2 2 0 0 0 2 2m6-9a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2h1V6a5 5 0 0 1 5-5a5 5 0 0 1 5 5v2zm-6-5a3 3 0 0 0-3 3v2h6V6a3 3 0 0 0-3-3'/%3E%3C/svg%3E");
-}
-
-.mdi--email {
-    display: inline-block;
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23d7d7d7' d='M20 8V6l-8 5l-8-5v2l8 5l8-5m0-4a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h16z'/%3E%3C/svg%3E");
-}
-
-.input-group input:focus + .mdi--email{
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23de1b28' d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2m0 4l-8 5l-8-5V6l8 5l8-5z'/%3E%3C/svg%3E");
-}
 
 p#forgot-password{
     font-size: x-small;
 }
 
-.sign-up-button{
+.account{
+    font-size: small;
+}
+
+.label{
     color: #de1b28;
     font-weight: 600;
     text-decoration: none;
 }
 
-.sign-up-button:hover{
+.label:hover{
     font-weight: bold;
 }
 
-body.sign-in-page .footer-content p{
+body.sign-in-page .footer-content p, body.sign-up-page .footer-content p{
     color: #f0f0f0;
+    font-size: x-small;
 }
 
-/* collection.html */
+/* Collection Page */
 body.collection-page main{
     overflow-x: hidden;
 }
