@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>C’Groovy Music</title>
-    <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./static/image/SVG/C'Groovy Logo Black.svg" type="image/svg+xml" media="(prefers-color-scheme: light")>
     <link rel="icon" href="./static/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark")>
+    <script src="./static/js/theme-mode.js"></script>
 </head>
 <body class="home-page">
     <!-- Navigation Bar -->
@@ -26,13 +27,21 @@
             </div>
             <nav class="nav-bar">
                 <ul class="menu-items">
-                    <li><a id="song" href="collection.html">Song</a></li>
+                    <li class="dropdown">
+                        <a id="song" href="collection.html">Song</a>
+                        <ul class="dropdown-menu">
+                            <li><a href=#>All Song</a></li>
+                            <li><a href=#>Pop</a></li>
+                            <li><a href=#>RnB</a></li>
+                            <li><a href=#>K-Pop</a></li>
+                        </ul>
+                    </li>
                     <li><a id="about-us" href="about.html">About</a></li>
                 </ul>
             </nav>
             <div class="sign-in">
                 <a href="sign-in.html">
-                    <button class="sign-in" type="button">SIGN IN</button>
+                    <button class="sign-in" id="sign-in-button" type="button">SIGN IN</button>
                 </a>
             </div>
         </div>
@@ -45,10 +54,5 @@
         </div>
     </main>
     <!-- Footer -->
-    <footer class="cgroovy-footer">
-        <div class="footer-content">
-            <p class="copyright">&copy; 2020 C’Groovy Music</p>
-        </div>
-    </footer>
 </body>
 </html>

@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In</title>
-    <link rel="stylesheet" href="./main.css">
-    <link rel="icon" href="./static/image/SVG/C'Groovy Logo Black.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
-    <link rel="icon" href="./static/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="./src/image/SVG/C'Groovy Logo Black.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
+    <link rel="icon" href="./src/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+    <script src="theme-toggle.js"></script>
+
 </head>
 <body class="sign-in-page">
     <div class="video-background">
         <video autoplay muted loop id="bg-video">
-            <source src="./static/video/3209858-uhd_3840_2160_25fps.mp4" type="video/mp4">
+            <source src="./src/video/3209858-uhd_3840_2160_25fps.mp4" type="video/mp4">
         </video>
         <div class="video-overlay"></div>
     </div>
@@ -20,7 +22,7 @@
         <div class="main-content">
             <div class="container" id="sign-in">
                 <div class="logo">
-                    <img class="logo" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="C'Groovy Logo">
+                    <img class="logo" src="./src/image/SVG/C'Groovy Logo Black.svg" alt="C'Groovy Logo">
                 </div>
                 <h1>Sign In</h1>
                 <form class="form" id="sign-in" action="#" method="post">
@@ -45,11 +47,7 @@
             </div>
         </div>
     </main>
-    <!-- Footer -->
-    <footer class="cgroovy-footer">
-        <div class="footer-content">
-            <p class="copyright">&copy; 2020 C’Groovy Music</p>
-        </div>
-    </footer>
+
+    <script src="./src/js/auth.js"></script>
 </body>
 </html>

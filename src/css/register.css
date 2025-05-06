@@ -1,23 +1,3 @@
-/* General Styles */
-*{ 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box;
-    color: black;
-    font-family: 'Poppins', sans-serif;
-}
-
-html, body {
-    height: 100%;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    position: relative; 
-    overflow: hidden;
-}
-
 /* Video Background */
 .video-background, .video-overlay {
     position: absolute;
@@ -43,151 +23,12 @@ body {
 }
 
 .video-overlay {
-    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5));
+    background: linear-gradient(
+        to bottom,
+        rgba(var(--primary-rgb), 0.7),
+        rgba(var(--secondary-rgb), 0.7)
+        );
     z-index: 1;
-}
-
-/* Header */
-header.cgroovy-header { 
-    position: sticky;
-    top: 0;
-    display: flex; 
-    justify-content: space-between; 
-    background: rgba(255, 255, 255, 0.3);
-    align-items: center;
-    height: 64px;
-    padding: 0px 48px;
-    border-bottom: 1px solid rgba(200, 206, 211, 1);
-    z-index: 10;
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    height: 64px;
-}
-
-.company-wrapper, .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.logo img, .logo a { 
-    height: 32px;
-}
-
-.logo img { 
-    width: auto;
-}
-
-.company-name { 
-    font-weight: bold;
-    font-size: 20px;
-}
-
-.search-bar {
-    display: inline-flex;
-    width: 40%;
-}
-
-.search-bar input {
-    flex: 1;
-    width: 100%;
-    padding-left: 38px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    height: 40px;
-}
-
-.fa--search{
-    display: inline-block;
-    margin-left: 10px;
-    width: 18px;
-    height: 18px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-    z-index: 1;
-}
-
-.fa--search {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1664 1664'%3E%3Cpath fill='%23616060' d='M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90'/%3E%3C/svg%3E");
-}
-
-.search-bar input:focus + .fa--search {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1664 1664'%3E%3Cpath fill='%23de1b28' d='M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90'/%3E%3C/svg%3E");   
-}
-
-.nav-bar ul { 
-    display: flex; 
-    list-style: none;
-    gap: 20px;
-    font-weight: 600;
-}
-
-.nav-bar a{ 
-    text-decoration: none;
-    color: black;
-}
-
-.nav-bar a:hover { 
-    color: #de1b28;
-}
-
-.sign-in button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 8px;
-    background-color: #de1b28;
-    color: #ffffff;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.sign-in button:hover {
-    color: #de1b28;
-    background-color: #f0f0f0;
-}
-
-/* Main */
-main.cgroovy-main {
-    display: flex;
-    flex: 1;
-    overflow-y: auto;
-    min-height: 100vh;
-}
-
-.main-content {
-    padding: 48px;
-}
-
-/* Footer */
-footer.cgroovy-footer {
-    text-align: center;
-    padding: 10px;
-}
-
-/* About Page */
-body.about-page #about-us {
-    color: #de1b28;
-}
-
-/* Sign-in and Sign-up Pages */
-.video-overlay{
-    background: linear-gradient(to bottom, rgba(255, 0, 0, 0.5), rgba(255, 0, 0, 0.5));
-}
-
-#bg-video {
-    position: fixed;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    z-index: -1;
 }
 
 body.sign-in-page main.cgroovy-main, body.sign-up-page main.cgroovy-main {
@@ -205,7 +46,7 @@ body.sign-in-page main img, body.sign-up-page main img{
     padding: 10px;
     top: -50px;
     left: 50%;
-    background-color: #ffffff;
+    background-color: var(--primary-background);
     transform: translateX(-50%);
     border-radius: 50%;
 }
@@ -217,10 +58,10 @@ body.sign-in-page main img, body.sign-up-page main img{
     flex-direction: column;
     gap: 32px;
     border-radius: 10px;
-    border: 1px solid #e0e0e0;
+    border: 1px solid var(--boder);
     padding: 16px;
     width: 25dvw;
-    background: #ffffff;
+    background: var(--primary-background);
 }
 
 .form {
@@ -284,16 +125,16 @@ body.sign-in-page main img, body.sign-up-page main img{
 
 input:focus {
     font-weight: 600;
-    color: #de1b28;
-    outline: none; border: #de1b28 2px solid
+    color: var(--primary);
+    outline: none; border: var(--primary) 2px solid
 }
 
 input#gender-male:focus, input#gender-female:focus{
-    color: #de1b28;
+    color: var(--primary);
 }
 
 input.gender:hover{
-    outline: none; border: #de1b28 2px solid;
+    outline: none; border: var(--primary) 2px solid;
     cursor: pointer;
 }
 
@@ -345,7 +186,7 @@ button#sign-in, button#sign-up {
     width: 100%;
     border: none;
     border-radius: 8px;
-    background-color: #de1b28;
+    background-color: var(--primary);
     color: #ffffff;
     font-weight: 600;
     font-size: medium;
@@ -353,8 +194,8 @@ button#sign-in, button#sign-up {
 }
 
 button#sign-in:hover, button#sign-up:hover{
-    color: #de1b28;
-    background-color: #f0f0f0;
+    color: var(--primary);
+    background-color: var(--primary-background);
 }
 
 
@@ -367,66 +208,11 @@ p#forgot-password{
 }
 
 .label{
-    color: #de1b28;
+    color: var(--primary);
     font-weight: 600;
     text-decoration: none;
 }
 
 .label:hover{
     font-weight: bold;
-}
-
-body.sign-in-page .footer-content p, body.sign-up-page .footer-content p{
-    color: #f0f0f0;
-    font-size: x-small;
-}
-
-/* Collection Page */
-body.collection-page main{
-    overflow-x: hidden;
-}
-
-body.collection-page section{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    height: 200px;
-    background: red;
-    max-width: 100%;
-}
-
-body.collection-page .song-list{
-    display: flex;
-    flex-direction: row;
-    gap: 16px;
-    justify-content: center;
-    overflow-x: auto;
-}
-
-body.collection-page .collection-card{
-    display: flex;
-    flex-direction: row;
-    background: white;
-    border-radius: 8px;
-    border: 1px solid #616060;
-    padding: 16px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    gap: 16px;
-    align-items: center;
-    justify-content: center;
-    width: 240px;
-}
-
-body.collection-page img.song-cover{
-    width: 84px;
-    height: 84px;
-}
-
-p.song-name{
-    font-weight: bold;
-}
-
-p.description{
-    font-size: 10px;
-    font-style: italic;
 }

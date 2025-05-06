@@ -1,212 +1,93 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collection | C'Groovy</title>
-    <link rel="stylesheet" href="./main.css">
-    <link rel="icon" href="./static/image/SVG/C'Groovy Logo Black.svg" type="image/svg+xml" media="(prefers-color-scheme: light)">
-    <link rel="icon" href="./static/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark)">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song Collection - C'Groovy</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./src/image/SVG/C'Groovy Logo Black.svg" type="image/svg+xml" media="(prefers-color-scheme: light")>
+  <link rel="icon" href="./src/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark")>
 </head>
-<body class="collection-page">
-    <!-- Navigation Bar -->
-    <header class="cgroovy-header">
-        <div class="header-content">
-            <div class="company-wrapper">
-                <div class="logo">
-                    <a id="home" href="index.html">
-                        <img src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Logo">
-                    </a>
-                </div>
-                <div class="company-name">C'Groovy Music</div>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search">
-                <span class="fa--search"></span>
-            </div>
-            <nav class="nav-bar">
-                <ul class="menu-items">
-                    <li><a id="song" href="collection.html">Song</a></li>
-                    <li><a id="about-us" href="about.html">About</a></li>
-                </ul>
-            </nav>
-            <div class="sign-in">
-                <a href="sign-in.html">
-                    <button class="sign-in" type="button">SIGN IN</button>
-                </a>
-            </div>
-        </div>
-    </header>
-    <!-- Main Content -->
-    <main class="cgroovy-main">
-        <div class="main-content">
-            <h1>Song Collection</h1>
-            <section class="genre" id="pop">
-                <h2>Pop</h2>
-                <div class="song-list">
-                    <div class="collection-card" id = "song-1">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-2">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-1">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-2">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-1">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-2">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="genre" id="rb">
-                <h2>R & B</h2>
-                <div class="song-list">
-                    <div class="collection-card" id = "song-1">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-2">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-1">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-2">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-1">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-2">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="genre" id="kpop">
-                <h2>K-Pop</h2>
-                <div class="song-list">
-                    <div class="collection-card" id = "song-1">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-2">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-1">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-2">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-1">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                    <div class="collection-card" id = "song-2">
-                        <img class="song-cover" src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Song 1">
-                        <div class="text" id="">
-                            <p class="song-name">Song 1</p>
-                            <p class="artist">Artist</p>
-                            <p class="description">Catchy pop anthem with synths</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-    </main>
-    <!-- Footer -->
-    <footer class="cgroovy-footer">
-        <div class="footer-content">
-            <p class="copyright">&copy; 2020 C’Groovy Music</p>
-        </div>
-    </footer>
+<body>
+  <!-- Navigation Bar -->
+  <header class="cgroovy-header">
+      <div class="header-content">
+          <div class="company-wrapper">
+              <div class="logo">
+                  <a id="home" href="index.html">
+                      <img src="./src/image/SVG/C'Groovy Logo Black.svg" alt="Logo">
+                  </a>
+              </div>
+              <div class="company-name">C'Groovy Music</div>
+          </div>
+          <div class="search-bar">
+              <input type="text" placeholder="Search">
+              <span class="fa--search"></span>
+          </div>
+          <nav class="nav-bar">
+              <ul class="menu-items">
+                  <li><a id="song" href="collection.html">Song</a></li>
+                  <li><a id="about-us" href="about.html">About</a></li>
+              </ul>
+          </nav>
+          <div class="sign-in">
+              <a href="sign-in.html">
+                  <button class="sign-in" type="button">SIGN IN</button>
+              </a>
+          </div>
+      </div>
+  </header>
+
+  <!-- Songs Hero -->
+  <main class="cgroovy-main">
+    <section class="sub-hero">
+      <h1>Our Song Collection</h1>
+      <p>Discover new music from diverse genres</p>
+    </section>
+    <section class="genre-filter">
+      <button class="filter-btn active" data-genre="all">All Genres</button>
+      <button class="filter-btn" data-genre="pop">Pop</button>
+      <button class="filter-btn" data-genre="rnb">R&B</button>
+      <button class="filter-btn" data-genre="kpop">K-Pop</button>
+    </section>
+    <section class="songs-collection">
+      <div class="songs-grid" id="songs-container">
+        <!-- Songs will be loaded dynamically with JavaScript -->
+      </div>
+    </section>
+  </main> 
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <h2>C'Groovy</h2>
+        <p>Music to everyone's fingertips since 2016</p>
+      </div>
+      <div class="footer-links">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="songs.html">Songs</a></li>
+          <li><a href="register.html">Register</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h3>Contact Us</h3>
+        <p>Email: info@cgroovy.com</p>
+        <p>Phone: +1 (123) 456-7890</p>
+        <p>Address: 123 Music Street, San Francisco, CA</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 C'Groovy. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="./src/js/theme-mode.js"></script>
+  <script src="./src/js/data.js"></script>
+  <script src="./src/js/song.js"></script>
 </body>
 </html>
