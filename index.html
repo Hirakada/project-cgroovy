@@ -7,45 +7,9 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="./static/image/SVG/C'Groovy Logo Black.svg" type="image/svg+xml" media="(prefers-color-scheme: light")>
     <link rel="icon" href="./static/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark")>
-    <script src="./static/js/theme-mode.js"></script>
 </head>
 <body class="home-page">
-    <!-- Navigation Bar -->
-    <header class="cgroovy-header">
-        <div class="header-content">
-            <div class="company-wrapper">
-                <div class="logo">
-                    <a id="home" href="index.html">
-                        <img src="./static/image/SVG/C'Groovy Logo Black.svg" alt="Logo">
-                    </a>
-                </div>
-                <div class="company-name">C'Groovy Music</div>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search">
-                <span class="fa--search"></span>
-            </div>
-            <nav class="nav-bar">
-                <ul class="menu-items">
-                    <li class="dropdown">
-                        <a id="song" href="collection.html">Song</a>
-                        <ul class="dropdown-menu">
-                            <li><a href=#>All Song</a></li>
-                            <li><a href=#>Pop</a></li>
-                            <li><a href=#>RnB</a></li>
-                            <li><a href=#>K-Pop</a></li>
-                        </ul>
-                    </li>
-                    <li><a id="about-us" href="about.html">About</a></li>
-                </ul>
-            </nav>
-            <div class="sign-in">
-                <a href="sign-in.html">
-                    <button class="sign-in" id="sign-in-button" type="button">SIGN IN</button>
-                </a>
-            </div>
-        </div>
-    </header>
+    <div id="header-container"></div>
     <!-- Main Content -->
     <main class="cgroovy-main">
         <div class="main-content">
@@ -54,5 +18,8 @@
         </div>
     </main>
     <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>

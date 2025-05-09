@@ -10,35 +10,7 @@
   <link rel="icon" href="./src/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark")>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <header class="cgroovy-header">
-      <div class="header-content">
-          <div class="company-wrapper">
-              <div class="logo">
-                  <a id="home" href="index.html">
-                      <img src="./src/image/SVG/C'Groovy Logo Black.svg" alt="Logo">
-                  </a>
-              </div>
-              <div class="company-name">C'Groovy Music</div>
-          </div>
-          <div class="search-bar">
-              <input type="text" placeholder="Search">
-              <span class="fa--search"></span>
-          </div>
-          <nav class="nav-bar">
-              <ul class="menu-items">
-                  <li><a id="song" href="collection.html">Song</a></li>
-                  <li><a id="about-us" href="about.html">About</a></li>
-              </ul>
-          </nav>
-          <div class="sign-in">
-              <a href="sign-in.html">
-                  <button class="sign-in" type="button">SIGN IN</button>
-              </a>
-          </div>
-      </div>
-  </header>
-
+  <div id="header-container"></div>
   <!-- Songs Hero -->
   <main class="cgroovy-main">
     <section class="sub-hero">
@@ -56,37 +28,10 @@
         <!-- Songs will be loaded dynamically with JavaScript -->
       </div>
     </section>
-  </main> 
+  </main>
+  <div id="footer-container"></div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-logo">
-        <h2>C'Groovy</h2>
-        <p>Music to everyone's fingertips since 2016</p>
-      </div>
-      <div class="footer-links">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="songs.html">Songs</a></li>
-          <li><a href="register.html">Register</a></li>
-        </ul>
-      </div>
-      <div class="footer-contact">
-        <h3>Contact Us</h3>
-        <p>Email: info@cgroovy.com</p>
-        <p>Phone: +1 (123) 456-7890</p>
-        <p>Address: 123 Music Street, San Francisco, CA</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 C'Groovy. All rights reserved.</p>
-    </div>
-  </footer>
-
-  <script src="./src/js/theme-mode.js"></script>
+  <script type="module" src="./src/js/main.js"></script>
   <script src="./src/js/data.js"></script>
   <script src="./src/js/song.js"></script>
 </body>

@@ -9,41 +9,42 @@
     <link rel="icon" href="./src/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark")>
 </head>
 <body class="about-page">
-    <!-- Navigation Bar -->
-    <header class="cgroovy-header">
-        <div class="header-content">
-            <div class="company-wrapper">
-                <div class="logo">
-                    <a id="home" href="index.html">
-                        <img src="./src/image/SVG/C'Groovy Logo Black.svg" alt="Logo">
-                    </a>
-                </div>
-                <div class="company-name">C'Groovy Music</div>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Search">
-                <span class="fa--search"></span>
-            </div>
-            <nav class="nav-bar">
-                <ul class="menu-items">
-                    <li><a id="song" href="collection.html">Song</a></li>
-                    <li><a id="about-us" href="about.html">About</a></li>
-                </ul>
-            </nav>
-            <div class="sign-in">
-                <a href="sign-in.html">
-                    <button class="sign-in" type="button">SIGN IN</button>
-                </a>
-            </div>
-        </div>
-    </header>
+    <div id="header-container"></div>
     <!-- Main Content -->
     <main class="cgroovy-main">
-        <div class="main-content">
-            <h1>About Us</h1>
-            <p>Your main content goes here.</p>
-        </div>
+        <!-- About Hero -->
+        <section class="sub-hero">
+            <div class="container">
+                <h1>About C'Groovy</h1>
+                <p>Learn about our journey and the team behind the music</p>
+            </div>
+        </section>
+
+        <!-- Company History -->
+        <section class="history container" id="history">
+            <div class="section-title">
+                <h2>Our Journey</h2>
+                <p>From a small startup to a global music platform</p>
+            </div>
+
+            <div class="timeline">
+            <!-- Timeline entries will be loaded with JavaScript -->
+            </div>
+        </section>
+
+        <!-- Team Members -->
+        <section class="team container" id="team">
+            <div class="section-title">
+                <h2>Meet Our Team</h2>
+                <p>The passionate people behind C'Groovy</p>
+            </div>
+            <div class="team-grid" id="team-members">
+            <!-- Team members will be loaded with JavaScript -->
+            </div>
+        </section>
     </main>
-    <!-- Footer -->
+    <div id="footer-container"></div>
+
+    <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>

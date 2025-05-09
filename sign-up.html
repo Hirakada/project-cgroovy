@@ -23,7 +23,7 @@
                     <img class="logo" src="./src/image/SVG/C'Groovy Logo Black.svg" alt="C'Groovy Logo">
                 </div>
                 <h1>Create Account</h1>
-                <form class="form" id="sign-up" action="#" method="post">
+                <form class="form" id="sign-up" action="/sign-up" method="post">
                     <div class="form-container">
                         <div class="form-group">
                             <div class="input-group" id="name-group">
@@ -40,16 +40,26 @@
                             </div>
                             <div class="input-group" id="age-group">
                                 <input type="text" id="age" name="age" placeholder="Age" required>
-                                <span class="mdi--password"></span>
+                                <span class="uis--calender"></span>
                             </div>
                             <div class="input-group" id="gender-group">
                                 <div class="input-group" id="male-group">
-                                    <input class="gender" type="button"  id="gender-male" name="gender" value="Male" required>'
-                                    <span class="mdi--face-male"></span>
+                                    <label class="radio-label">
+                                        <input type="radio" name="gender" value="male" required/>
+                                        <div class="radio-content">
+                                          <span class="mdi--face-male"></span>
+                                          <span class="label-text">Male</span>
+                                        </div>
+                                    </label>
                                 </div>
                                 <div class="input-group" id="female-group">
-                                    <input class="gender" type="button" id="gender-female" name="gender" value="Female" required>
-                                    <span class="mdi--face-female"></span>
+                                    <label class="radio-label">
+                                        <input type="radio" name="gender" value="female" required/>
+                                        <div class="radio-content">
+                                          <span class="mdi--face-female"></span>
+                                          <span class="label-text">Female</span>
+                                        </div>
+                                    </label>
                                 </div>
                             </div>
                         </div>
@@ -63,6 +73,6 @@
         </div>
     </main>
 
-    <script src="./src/js/auth.js"></script>
+    <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>
