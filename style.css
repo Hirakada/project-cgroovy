@@ -3,5 +3,6 @@
 
 /* Import page-specific styles */
 @import url(./src/css/about.css);
-@import url(./src/css/collection.css);
+@import url(./src/css/song.css);
 @import url(./src/css/register.css);
+@import url(./src/css/song-detail.css);

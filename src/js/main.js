@@ -1,20 +1,54 @@
 import { signUp, signIn, handleAuthButton, getUser } from './auth.js';
+import { songs } from './data.js';
+import { displaySong } from './song.js';
+import { loadSongDetails } from './song-detail.js';
 
 function loadUsers() {
-  const users = localStorage.getItem("users");
-  if (users) {
-      console.log("Loaded users:", JSON.parse(users));
-      return JSON.parse(users);
-  } else {
-      return [];
-  }
+    const users = localStorage.getItem("users");
+    if (users) {
+        console.log("Loaded users:", JSON.parse(users));
+        return JSON.parse(users);
+    } else {
+        return [];
+    }
 }
 
 function setTheme() {
-  const root = document.documentElement;
-  const savedTheme = localStorage.getItem('theme');
-  const theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  root.setAttribute('data-theme', theme);
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem('theme');
+    const theme = savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    root.setAttribute('data-theme', theme);
+}
+
+function searchSongs() {
+    const searchInput = document.getElementById('search-input');
+    if (searchInput) {
+        searchInput.addEventListener("keypress", function (event) {
+            if (event.key === "Enter") {
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.location.href = `song.html?search=${encodeURIComponent(query)}`;
+                } else {
+                    alert("Please enter a song name to search.");
+                }
+            }
+        });
+    }
+}
+
+function hamburgerMenu() {
+    const hamburger = document.getElementById('hamburger-icon');
+    const dropdown = document.querySelector('.hamburger-dropdown');
+
+    hamburger.addEventListener('click', function () {
+      dropdown.classList.toggle('show');
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.hamburger-menu')) {
+        dropdown.classList.remove('show');
+      }
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -35,6 +69,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     container.innerHTML = data;
                     if (containerId === 'header-container') {
                         handleAuthButton();
+                        searchSongs();
+                        hamburgerMenu();
                     }
                 })
                 .catch(error => {
@@ -63,16 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (signUpForm) {
         signUpForm.addEventListener("submit", function (event) {
             event.preventDefault(); 
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-            const age = document.getElementById("age").value;
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const password = document.getElementById("password").value.trim();
+            const age = parseInt(document.getElementById("age").value, 10);
             const gender = document.querySelector('input[name="gender"]:checked')?.value;
-    
-            if (!gender) {
-                alert("Please select your gender.");
-                return;
-            }
     
             const result = signUp(name, email, password, age, gender);
     
@@ -104,4 +135,43 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
+    if (window.location.pathname.includes("song.html")) {
+        const params = new URLSearchParams(window.location.search);
+        const query = params.get("search")?.toLowerCase();
+
+        let filteredSongs = songs;
+
+        if (query) {
+            filteredSongs = songs.filter(song =>
+                song.title.toLowerCase().includes(query) ||
+                song.artist.toLowerCase().includes(query)
+            );
+        }
+
+        displaySong(filteredSongs);
+
+        const observer = new MutationObserver(() => {
+            const genreButtons = document.querySelectorAll('.filter-btn');
+            genreButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelector('.filter-btn.active')?.classList.remove('active');
+                    button.classList.add('active');
+
+                    const genre = button.getAttribute('data-genre');
+                    const genreFiltered = genre === "all"
+                        ? filteredSongs
+                        : filteredSongs.filter(song => song.genre.toLowerCase() === genre);
+
+                    displaySong(genreFiltered);
+                });
+            });
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+    }
+
+    if (window.location.pathname.includes("song-detail.html")) {
+        loadSongDetails(songs);
+    }
 });
+

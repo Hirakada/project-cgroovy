@@ -9,25 +9,33 @@
             <div class="company-name">C'Groovy Music</div>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="Search">
+            <input id="search-input" type="text" placeholder="Search by title or artist">
             <span class="fa--search"></span>
         </div>
         <nav class="nav-bar">
             <ul class="menu-items">
                 <li><a id="home" href="index.html">Home</a></li>
-                <li class="dropdown">
-                    <a id="song" href="collection.html">Song</a>
-                    <ul class="dropdown-menu">
-                    <li><a href="#">Pop</a></li>
-                    <li><a href="#">R&B</a></li>
-                    <li><a href="#">K-Pop</a></li>
-                    </ul>
-                </li>
+                <li><a id="song" href="song.html">Song</a></li>
                 <li><a id="about-us" href="about.html">About</a></li>
             </ul>
         </nav>
         <div class="sign-in">
             <button class="sign-in" type="button" id="auth-button">SIGN IN</button>
+        </div>
+        <div class="hamburger-menu" id="hamburger-menu">
+            <iconify-icon icon="material-symbols:menu-rounded" id="hamburger-icon"></iconify-icon>
+            <div class="hamburger-dropdown">
+                <ul class="hamburger-menu-items">
+                    <li><a id="home" href="index.html">Home</a></li>
+                    <li><a id="song" href="song.html">Song</a></li>
+                    <li><a id="about-us" href="about.html">About</a></li>
+                    <li>
+                        <div class="sign-in">
+                            <button class="sign-in" type="button" id="auth-button">SIGN IN</button>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </header>

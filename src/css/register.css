@@ -31,10 +31,18 @@
     z-index: 1;
 }
 
-body.sign-in-page main.cgroovy-main, body.sign-up-page main.cgroovy-main {
-    min-height: 85vh;
-    justify-content: center;
-    align-items: center;
+body.sign-in-page .main-content,
+body.sign-up-page .main-content {
+  min-height: calc(100vh - 52px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+body.sign-in-page .container,
+body.sign-up-page .container {
+  margin: 0;
 }
 
 body.sign-in-page main img, body.sign-up-page main img{
@@ -61,7 +69,7 @@ body.sign-in-page main img, body.sign-up-page main img{
     border: 1px solid var(--boder);
     padding: 16px;
     width: 25dvw;
-    background: var(--primary-background);
+    background: var(--card-bg);
 }
 
 .form {

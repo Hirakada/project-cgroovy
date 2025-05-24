@@ -20,9 +20,21 @@ function saveUsers(users) {
     localStorage.setItem("users", JSON.stringify(users));
 }
 
-function validateForm(password, age) {
+function validateForm(users, name, email, password, age, gender) {
+    if (!name && !email && !password && !age && !gender) {
+        return { valid: false, message: "Please fill in all fields!" };
+    }
+    if (users.some(u => u.email === email)) {
+        return { valid: false, message: "Email already registered." };
+    }
+    if (!email.includes("@") || !email.includes(".")) {
+        return { valid: false, message: "Please enter a valid email address!" };
+    }
     if (password.length < 6) {
         return { valid: false, message: "Password must be at least 6 characters long!" };
+    }
+    if (!/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
+        return { valid: false, message: "Password must contain both letters and numbers!" };
     }
     if (isNaN(age) || age < 12) {
         return { valid: false, message: "Please enter a valid age above 12" };
@@ -32,11 +44,8 @@ function validateForm(password, age) {
 
 export function signUp(name, email, password, age, gender) {
     const users = loadUsers();
-    if (users.some(u => u.email === email)) {
-        return { success: false, message: "Email already registered." };
-    }
-
-    const validation = validateForm(password, age);
+    const validation = validateForm(users, name, email, password, age, gender);
+    
     if (!validation.valid) {
         return { success: false, message: validation.message };
     }

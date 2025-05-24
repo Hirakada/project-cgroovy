@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="section">
+    <div class="section-container">
+        <div class="awalan">
+            <h1>Our TradeMark</h1>
+            <h3>Unleash your rhythm with AI-curated playlists, real-time collabs, and a stage for rising stars.</h3>
+        </div>
+
+        <div class="isi-value">
+            <div class="card">
+                <div class="value">
+                    <div class="judul">GrooveSync™</div>
+                    <div class="isi-judul">AI-Powered Personalized Playlists</div>
+                    <div class="isi">C’Groovy’s smart GrooveSync™ technology curates personalized playlists based on your mood.</div>
+                </div>
+                <div class="blob"></div>
+                <div class="fakeblob"></div>
+            </div>
+            <div class="card">
+                <div class="value">
+                    <div class="judul">GroovyX</div>
+                    <div class="isi-judul">Real-Time Collaborative Playlists</div>
+                    <div class="isi">Experience music together! GroovyX allows users to create collaborative playlists with friends and family.</div>
+                </div>
+                <div class="blob"></div>
+                <div class="fakeblob"></div>
+            </div>
+            <div class="card">
+                <div class="value">
+                    <div class="judul">GroovyStage</div>
+                    <div class="isi-judul">Emerging Artists Spotlighter</div>
+                    <div class="isi">Support and discover new talent with GroovyStage, a dedicated space for up-and-coming artists.</div>
+                </div>
+                <div class="blob"></div>
+                <div class="fakeblob"></div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <style>
+        .awalan{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 480px;
+            width: 100%;
+            padding: 2.5rem 1rem 3rem 1rem;
+            background: black;
+        }
+
+        .section-container {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .awalan {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .awalan h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 16px #23232b;
+        }
+
+        .awalan h3 {
+            font-size: 1.15rem;
+            font-weight: 400;
+            color: #478860;
+            margin-bottom: 0;
+            letter-spacing: 0.5px;
+        }
+
+        .isi-value {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .card {
+            background: linear-gradient(135deg, #23232b 80%, #18181c 100%);
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.28), 0 1.5px 0 #D22630 inset;
+            padding: 1px;
+            transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s, border 0.25s;
+            cursor: pointer;
+            width: clamp(240px, 100%, 300px); 
+            flex: 1 1 clamp(240px, 100%, 300px);
+            z-index: 1
+        }
+
+        .value {
+            display: flex;
+            background: rgb(26, 26, 26);
+            border-radius: 18px;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 28px 24px 22px 24px;
+            transition: background 300ms ease-in-out;
+            z-index: 2;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.05);
+            background: #D22630;
+        }
+
+        .value .judul {
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.5px;
+            text-shadow: 0 1px 8px #18181c;
+        }
+
+        .value .isi-judul {
+            font-size: 1.02rem;
+            color: #7fffd4;
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.5px;
+        }
+
+        .value .isi {
+            font-size: 0.98rem;
+            color: #e0e0e0;
+            line-height: 1.5;
+            margin-top: 0.2rem;
+            text-shadow: 0 1px 8px #18181c;
+        }
+        .blob {
+            filter: blur(40px);
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 30%, #dd1818 100%);
+            will-change: transform;
+
+        }
+        .fakeblob {
+            position: absolute;
+            z-index: -1;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+    </style>
+
+    <script>
+const allCards = document.querySelectorAll(".card");
+
+window.addEventListener("mousemove", (ev) => {
+  allCards.forEach((e) => {
+    const blob = e.querySelector(".blob");
+    const fblob = e.querySelector(".fakeblob");
+    const rect = e.getBoundingClientRect();
+
+    const rec = fblob.getBoundingClientRect();
+
+    blob.animate(
+      [
+        {
+          transform: `translate(${ev.clientX - rec.left - (rec.width / 2)}px, ${ev.clientY - rec.top - (rec.height / 2)}px)`
+        }
+      ],
+      {
+        duration: 300,
+        fill: "forwards"
+      }
+    );
+
+  });
+});
+    </script>
+</body>
+</html>

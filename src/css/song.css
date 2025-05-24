@@ -1,0 +1,106 @@
+.sub-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  gap: 0.5rem;
+}
+
+.song-hero p {
+  font-size: 0.8rem
+}
+
+.genre-filter {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.genre-filter button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  background: transparent;
+  color: var(--text-light);
+  padding: 0.5rem 1rem;
+  border: 0;
+  cursor: pointer;
+  position: relative; 
+  transition: background-color 0.3s ease;
+}
+
+.genre-filter button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary);
+  transform: translateX(-50%);
+  transition: width 0.3s ease-in-out;
+  border-radius: 1px;
+}
+
+.genre-filter button:hover::after, .genre-filter button.active::after {
+  width: 100%;
+}
+
+.songs-grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, 260px);
+  justify-content: center;
+  margin: 2rem 0;
+  padding: 0;
+  gap: 1.3rem 0.3rem;
+}
+
+.song-item {
+  display: flex;
+  width: 100%;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  padding: 1rem;
+  transition: transform 0.3s ease-in-out;
+  flex-direction: column;
+}
+
+.song-item:hover {
+  transform: translateY(-5px);
+  background-color: var(--card-bg);
+  cursor: pointer;
+}
+
+.song-image {
+  width: 100%;
+  object-fit: cover;
+}
+
+.song-info {
+  padding-top: 10px;
+}
+
+.song-title-artist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.song-artist {
+  font-size: 0.7rem;
+}
+
+.song-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.song-description {
+  font-size: 0.8rem;
+  color: var(--text-light);
+}
