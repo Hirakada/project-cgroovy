@@ -5,7 +5,7 @@ export const songs = [
     description: `“Lost Your Faith" is a message of love and hope.`,
     artist: "Ava Max",
     genre: "pop",
-    image: "./src/image/JPG/Lost Your Faith.jpg",
+    image: "./src/image/JPG/Cover/Lost Your Faith.jpg",
     audio: "./src/audio/pop/Ava Max - Lost Your Faith.mp3",
     lyric: `It's gettin' darker on the road we're on, I know, I know
 It's gettin' harder to believe in us, I know, I know
@@ -45,7 +45,7 @@ But now, you've lost your faith`
     description: `...`,
     artist: "Ed Sheeran",
     genre: "pop",
-    image: "./src/image/JPG/Shape of You.jpg",
+    image: "./src/image/JPG/Cover/Shape of You.jpg",
     audio: "./src/audio/pop/Ed Sheeran - Shape Of You.mp3",
     lyric: `The club isn't the best place to find a lover
 So the bar is where I go
@@ -142,7 +142,7 @@ I'm in love with the shape of you`
     description: `Nothing here...`,
     artist: "KISS OF LIFE",
     genre: "kpop",
-    image: "./src/image/JPG/Live, Love, Laugh.jpg",
+    image: "./src/image/JPG/Cover/Live, Love, Laugh.jpg",
     audio: "./src/audio/kpop/KISS OF LIFE 'Live, Love, Laugh'.mp3",
     lyric: `Talk to me
 You know it's all for you
@@ -225,7 +225,7 @@ We just need to live as we are`
     description: `Nothing here...`,
     artist: "Ariana Grande",
     genre: "pop",
-    image: "./src/image/JPG/positions.jpg",
+    image: "./src/image/JPG/Cover/positions.jpg",
     audio: "./src/audio/pop/Ariana Grande - positions.mp3",
     lyric: `Heaven sent you to me
 I'm just hopin' I don't repeat history
@@ -281,7 +281,7 @@ Ah (ah), yeah`
     description: `Nothing here...`,
     artist: "Khalid",
     genre: "rnb",
-    image: "./src/image/JPG/Location.jpg",
+    image: "./src/image/JPG/Cover/Location.jpg",
     audio: "./src/audio/rnb/Khalid - Location.mp3",
     lyric: `Send me your location
 Let's focus on communicating
@@ -341,7 +341,7 @@ Oh, I don't need nothing else but you`
     description: `Nothing here...`,
     artist: "The Weeknd",
     genre: "rnb",
-    image: "./src/image/JPG/Blinding Lights.jpg",
+    image: "./src/image/JPG/Cover/Blinding Lights.jpg",
     audio: "./src/audio/rnb/The Weeknd - Blinding Lights.mp3",
     lyric: `Yeah
 I've been tryna call
@@ -385,7 +385,7 @@ No, I can't sleep until I feel your touch`
     description: `Nothing here...`,
     artist: "BLACKPINK",
     genre: "kpop",
-    image: "./src/image/JPG/Pink Venom.jpg",
+    image: "./src/image/JPG/Cover/Pink Venom.jpg",
     audio: "./src/audio/kpop/BLACKPINK - ‘Pink Venom’.mp3",
     lyric: `BLACKPINK
 BLACKPINK
@@ -454,7 +454,7 @@ I bring the pain like-`
     description: `Nothing here...`,
     artist: "SZA",
     genre: "rnb",
-    image: "./src/image/JPG/Kill Bill.jpg",
+    image: "./src/image/JPG/Cover/Kill Bill.jpg",
     audio: "./src/audio/rnb/SZA - Kill Bill.mp3",
     lyric: `I'm still a fan even though I was salty
 Hate to see you with some other broad, know you happy
@@ -506,7 +506,7 @@ Rather be in Hell than alone`
     description: `Nothing here...`,
     artist: "NewJeans (뉴진스)",
     genre: "kpop",
-    image: "./src/image/JPG/OMG New Jeans.jpg",
+    image: "./src/image/JPG/Cover/OMG New Jeans.jpg",
     audio: "./src/audio/kpop/NewJeans (뉴진스) 'OMG'.mp3",
     lyric: `이 노래는 it's about you, baby
 Only you

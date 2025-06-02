@@ -1,34 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-:root {
-  --primary: #D22630;
-  --primary-rgb: 210, 38, 48;
-  --primary-hover: #A31C24;
-  --secondary: #B41E1E;
-  --secondary-rgb: 180, 30, 30;
-  --secondary-hover: #8C3A3A;
-  --primary-background: #FFFFFF;
-  --card-bg: #F5F5F7;
-  --text-light: #121214;
-  --text-muted: #5F5F67;
-  --border-color: #D0D0D5;
-  --error: #E03E3E;
-}
-
 /* Dark Theme */
 [data-theme="dark"] {
-  --primary: #E03E3E;
+  --primary: #A0182F;
   --primary-rgb: 224, 62, 62;
   --primary-hover: #B73232;
-  --secondary: #B41E1E;
-  --secondary-rgb: 180, 30, 30;
-  --secondary-hover: #8C3A3A;
   --primary-background: #121214;
   --card-bg: #1E1E22;
   --text-light: #E6E6E6;
   --text-muted: #8F8F99;
   --border-color: #333339;
   --error: #E84949;
+  --button-hover: #171717;
 }
 
 * {
@@ -57,17 +40,17 @@ h1 {
 }
 
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
 }
 
 h3 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 600;
 }
 
 h4 {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -81,7 +64,12 @@ h6 {
   font-weight: 600;
 }
 
-p, li, a, label, input, button {
+p,
+li,
+a,
+label,
+input,
+button {
   font-size: 0.8rem;
 }
 
@@ -184,18 +172,17 @@ header {
 }
 
 .sign-in button {
-  font-size: .8rem;
   padding: 6px 10px;
   border: none;
   border-radius: 6px;
-  background-color: var(--primary);
-  color: var(--primary-background);
+  background: var(--primary);
   font-weight: bold;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .sign-in button:hover {
-  background-color: var(--card-bg);
+  background: var(--button-hover);
   color: var(--primary);
 }
 
@@ -204,10 +191,6 @@ main {
   display: block;
   min-height: calc(100vh - 52px);
   flex: 1 0 auto;
-}
-
-.main-content {
-  padding: 2rem 6rem;
 }
 
 /* Footer */
@@ -288,24 +271,34 @@ footer {
   h1 {
     font-size: 1.5rem;
   }
+
   h2 {
-    font-size: 1.2rem;
-  }
-  h3 {
-    font-size: 0.9rem;
-  }
-  h4 {
-    font-size: 0.85rem;
-  }
-  h5 {
-    font-size: 0.75rem;
-  }
-  h6 {
-    font-size: 0.7rem;
+    font-size: 1.3rem;
   }
 
-  p, li, a, label, input, button {
-    font-size: 0.6rem;
+  h3 {
+    font-size: 1.1rem;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  h5 {
+    font-size: 0.8rem;
+  }
+
+  h6 {
+    font-size: 0.75rem;
+  }
+
+  p,
+  li,
+  a,
+  label,
+  input,
+  button {
+    font-size: 0.7rem;
   }
 
   /* Header */
@@ -373,11 +366,6 @@ footer {
     padding: 10px 16px;
     text-decoration: none;
     color: var(--text-light);
-  }
-
-  /* Main */
-  .main-content {
-    padding: 2rem;
   }
 
   /* Footer */

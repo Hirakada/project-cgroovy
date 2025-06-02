@@ -8,136 +8,138 @@
     <link rel="icon" href="./static/image/SVG/C'Groovy Logo Black.svg" type="image/svg+xml" media="(prefers-color-scheme: light")>
     <link rel="icon" href="./static/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark")>
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body class="home-page">
     <div id="header-container"></div>
     <!-- Main Content -->
-    <main class="cgroovy-main">
+    <main>
         <div class="main-content">
-            <h1>Welcome to C’Groovy Music</h1>
-            <p>Your main content goes here.</p>
+            <section class="awal">
+                <div class="gambar">
+                    <img src="./src/image/JPG/Home/hero.jpg" alt="">
+                </div>
+                <div class="awal-isi">
+                    <div class="intro">
+                        <div class="nama">
+                            <h2>Lets get grooving with </h2>
+                            <h1 id="awal"> C'Groovy</h1>
+                        </div>
+                        <p>We are ready to help you find the song that suits you most! </p>
+                    </div>
+                    <div class="pecahan">
+                        <div class="isi-pecahan">
+                            <h2 class="angka">6800+</h2>
+                            <h5 class="ttg">Songs Saved</h5>
+                        </div>
+                        <div class="isi-pecahan">
+                            <h2 class="angka">1200+</h2>
+                            <h5 class="ttg">Playlists Created</h5>
+                        </div>
+                        <div class="isi-pecahan">
+                            <h2 class="angka">500+</h2>
+                            <h5 class="ttg">Artists Discovered</h5>
+                        </div>
+                    </div>
+                    <button class="tombol">Learn More!</button>                    
+                </div>
+            </section>
+            <section class="section">
+                <div class="awalan">
+                    <h1>Our TradeMark</h1>
+                    <h4>Unleash your rhythm with AI-curated playlists, real-time collabs, and a stage for rising stars.</h3>
+                </div>
+                <div class="isi-value">
+                    <div class="card">
+                        <div class="value">
+                            <h3 class="judul">GrooveSync™</h3>
+                            <h4 class="isi-judul">AI-Powered Personalized Playlists</h4>
+                            <p class="isi">C’Groovy’s smart GrooveSync™ technology curates personalized playlists based on your mood.</p>
+                        </div>
+                        <div class="blob"></div>
+                        <div class="fakeblob"></div>
+                    </div>
+                    <div class="card">
+                        <div class="value">
+                            <h3 class="judul">GroovyX</h3>
+                            <h4 class="isi-judul">Real-Time Collaborative Playlists</h4>
+                            <p class="isi">Experience music together! GroovyX allows users to create collaborative playlists with friends and family.</p>
+                        </div>
+                        <div class="blob"></div>
+                        <div class="fakeblob"></div>
+                    </div>
+                    <div class="card">
+                        <div class="value">
+                            <h3 class="judul">GroovyStage</h3>
+                            <h4 class="isi-judul">Emerging Artists Spotlighter</h4>
+                            <p class="isi">Support and discover new talent with GroovyStage, a dedicated space for up-and-coming artists.</p>
+                        </div>
+                        <div class="blob"></div>
+                        <div class="fakeblob"></div>
+                    </div>
+                </div>
+            </section>
+            <section class="akhir">
+                <h1 class="carousel-main-title">Check our popular artist and song this month</h1>
+                <div class="carousel">
+                    <div class="carousel-track">
+                        <div class="carousel-item active"
+                            data-audio="./src/audio/pop/Ava Max - Lost Your Faith.mp3"
+                            data-title="Ava Max"
+                            data-desc="Ava Max is a pop sensation known for her catchy hooks and bold style.">
+                            <img src="./src/image/PNG/Artist/AvaMax.png" alt="Ava Max">
+                        </div>
+                        <div class="carousel-item"
+                            data-audio="./src/audio/kpop/KISS OF LIFE 'Live, Love, Laugh'.mp3"
+                            data-title="New Jeans"
+                            data-desc="New Jeans brings fresh energy and style to the K-pop scene.">
+                            <img src="./src/image/PNG/Artist/NewJeans.png" alt="New Jeans">
+                        </div>
+                        <div class="carousel-item"
+                            data-audio="./src/audio/pop/Ariana Grande - positions.mp3"
+                            data-title="Ariana Grande"
+                            data-desc="Ariana Grande, a global superstar with a powerful voice and chart-topping hits.">
+                            <img src="./src/image/PNG/Artist/Ariana.png" alt="Ariana Grande">
+                        </div>
+                        <div class="carousel-item"
+                            data-audio="./src/audio/rnb/The Weeknd - Blinding Lights.mp3"
+                            data-title="The Weeknd"
+                            data-desc="The Weeknd, known for his unique sound and unforgettable performances.">
+                            <img src="./src/image/PNG/Artist/TheWeeknd.png" alt="The Weeknd">
+                        </div>
+                        <div class="carousel-item"
+                            data-audio="./src/audio/kpop/BLACKPINK - ‘Pink Venom’.mp3"
+                            data-title="BLACKPINK"
+                            data-desc="BLACKPINK, the world’s biggest girl group, breaking records everywhere.">
+                            <img src="./src/image/PNG/Artist/BlackPink.png" alt="BLACKPINK">
+                        </div>
+                    </div>
+                    <div class="button-list">
+                        <button class="carousel-btn" id="carousel-prev">
+                            <iconify-icon icon="mdi:chevron-left"></iconify-icon>
+                        </button>
+                        <button class="carousel-mute" id="carousel-mute">
+                            <span id="mute-icon">🔊</span>
+                        </button>
+                        <button class="carousel-btn" id="carousel-next">
+                            <iconify-icon icon="mdi:chevron-right"></iconify-icon>
+                        </button>
+                    </div> 
+                    <audio id="carousel-audio"></audio>
+                </div>
+               
+                <div class="carousel-info">
+                    <h3 class="carousel-title"></h3>
+                    <p class="carousel-desc"></p>
+                </div>
+            </section>
         </div>
-        <div class="card-container">
-            <div class="card">
-                <div class="value">
-                    <div class="judul">GrooveSync™</div>
-                    <div class="isi-judul">AI-Powered Personalized Playlists</div>
-                    <div class="isi">C’Groovy’s smart GrooveSync™ technology curates personalized playlists based on your mood.</div>
-                </div>
-                <div class="blob"></div>
-                <div class="fakeblob"></div>
-            </div>
-            <div class="card">
-                <div class="value">
-                    <div class="judul">GroovyX</div>
-                    <div class="isi-judul">Real-Time Collaborative Playlists</div>
-                    <div class="isi">Experience music together! GroovyX allows users to create collaborative playlists with friends and family.</div>
-                </div>
-                <div class="blob"></div>
-                <div class="fakeblob"></div>
-            </div>
-            <div class="card">
-                <div class="value">
-                    <div class="judul">GroovyStage</div>
-                    <div class="isi-judul">Emerging Artists Spotlighter</div>
-                    <div class="isi">Support and discover new talent with GroovyStage, a dedicated space for up-and-coming artists.</div>
-                </div>
-                <div class="blob"></div>
-                <div class="fakeblob"></div>
-            </div>
-        </div>
-    </div>
+
     </main>
     <!-- Footer -->
     <div id="footer-container"></div>
 
-    <style>.card-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  width: 50%;
-  padding: 20px;
-}
-
-.card {
-  background: rgb(128 128 128 / 0.2);
-  padding: 1px;
-  border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-  width: 220px;
-}
-
-.value {
-  background: rgb(26, 26, 26);
-  border-radius: 10px;
-  padding: 20px;
-  width: 100%;
-  height: 100%;
-  transition: background 300ms ease-in-out;
-}
-
-.card:hover {
-    background: linear-gradient(135deg, #23232b 80%, #18181c 100%);
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 12px 32px rgba(44, 47, 58, 0.33), 0 0 0 2px #480e8f;
-    border-color: #480e8f;
-    z-index: 2;
-}
-
-
-.value .judul {
-    font-size: 1.18rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 0.3rem;
-    letter-spacing: 0.5px;
-    text-shadow: 0 1px 8px #18181c;
-}
-
-.value .isi-judul {
-    font-size: 1.02rem;
-    color: #7fffd4;
-    font-weight: 600;
-    margin-bottom: 0.7rem;
-    letter-spacing: 0.5px;
-}
-
-.value .isi {
-    font-size: 0.98rem;
-    color: #e0e0e0;
-    line-height: 1.5;
-    margin-top: 0.2rem;
-    text-shadow: 0 1px 8px #18181c;
-}
-
-.blob {
-  filter: blur(40px);
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  will-change: transform;
-}
-
-.fakeblob {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  opacity: 0;
-  pointer-events: none;
-}
-    </style>
     <script type="module" src="./src/js/main.js"></script>
-    <script src="spotlight.js"></script>
+    <script src="./src/js/home.js"></script>
 </body>
 </html>
