@@ -9,7 +9,6 @@ if (!localStorage.getItem("users")) {
 function loadUsers() {
     const users = localStorage.getItem("users");
     if (users) {
-        console.log("Loaded users:", JSON.parse(users));
         return JSON.parse(users);
     } else {
         return [];
@@ -20,8 +19,21 @@ function saveUsers(users) {
     localStorage.setItem("users", JSON.stringify(users));
 }
 
-function validateForm(users, name, email, password, age, gender) {
-    if (!name && !email && !password && !age && !gender) {
+function calculateAge(dateString) {
+    const today = new Date();
+    const birthDate = new Date(dateString);
+
+    let age = today.getFullYear() - birthDate.getFullYear();
+    const monthDifference = today.getMonth() - birthDate.getMonth();
+
+    if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+    }
+    return age;
+}
+
+function validateForm(users, name, email, password, dobString, gender) {
+    if (!name || !email || !password || !dobString || !gender) {
         return { valid: false, message: "Please fill in all fields!" };
     }
     if (users.some(u => u.email === email)) {
@@ -36,37 +48,38 @@ function validateForm(users, name, email, password, age, gender) {
     if (!/[a-zA-Z]/.test(password) || !/[0-9]/.test(password)) {
         return { valid: false, message: "Password must contain both letters and numbers!" };
     }
-    if (isNaN(age) || age < 12) {
-        return { valid: false, message: "Please enter a valid age above 12" };
+
+    const age = calculateAge(dobString);
+    if (age < 12) {
+        return { valid: false, message: "Age must be at least 12 years old." };
     }
-    return { valid: true };
+    
+    return { valid: true, calculatedAge: age };
 }
 
-export function signUp(name, email, password, age, gender) {
+export function signUp(name, email, password, dobString, gender) {
     const users = loadUsers();
-    const validation = validateForm(users, name, email, password, age, gender);
+    const validation = validateForm(users, name, email, password, dobString, gender);
     
     if (!validation.valid) {
         return { success: false, message: validation.message };
     }
 
-    users.push({ name, email, password, age, gender });
+    const age = validation.calculatedAge;
+    users.push({ name, email, password, age: age, gender });
     saveUsers(users);
     return { success: true, message: "Registration successful! Please sign in." };
 }
 
 export function signIn(email, password) {
     const users = loadUsers();
-    console.log("Attempting to sign in with email:", email, "and password:", password);
     
     const user = users.find(u => u.email === email && u.password === password);
     
     if (user) {
-        console.log("Login successful:", user); 
         localStorage.setItem("currentUser", JSON.stringify(user));
         return { success: true, message: `Login successful! Welcome ${user.name}` };
     } else {
-        console.log("Login failed: Invalid email or password.");
         return { success: false, message: "Invalid email or password." };
     }
 }
@@ -84,6 +97,7 @@ export function handleAuthButton() {
         try {
             const user = JSON.parse(currentUser);
             authButton.textContent = "SIGN OUT";
+            authButton.removeEventListener("click", redirectToSignIn);
             authButton.addEventListener("click", signOut);
         } catch (e) {
             console.error('Error parsing currentUser from localStorage:', e);
@@ -91,14 +105,19 @@ export function handleAuthButton() {
         }
     } else {
         authButton.textContent = "SIGN IN";
-        authButton.addEventListener("click", () => {
-            window.location.href = "sign-in.html";
-        });
+        authButton.removeEventListener("click", signOut);
+        authButton.addEventListener("click", redirectToSignIn);
     }
 }
 
+function redirectToSignIn() {
+    window.location.href = "sign-in.html";
+}
+
 export function signOut(event) {
-    event.preventDefault();
+    if (event) {
+        event.preventDefault();
+    }
     localStorage.removeItem("currentUser");
     window.location.href = "sign-in.html";
 }

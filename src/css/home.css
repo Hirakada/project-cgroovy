@@ -1,4 +1,4 @@
-.awal{
+.awal {
     position: relative;
     width: 100%;
     height: calc(100vh - 52px);
@@ -33,16 +33,16 @@
     gap: 1rem;
 }
 
-.nama{
+.nama {
     display: flex;
     gap: 8px;
 }
 
-#awal{
+#awal {
     font-weight: 800;
 }
 
-.pecahan{
+.pecahan {
     display: flex;
     justify-content: flex-start;
     align-self: flex-start;
@@ -50,16 +50,16 @@
     gap: 20px;
 }
 
-.angka{
+.angka {
     color: var(--primary);
     text-shadow: 0 1px 3px var(--primary);
 }
 
-.ttg{
+.ttg {
     text-shadow: 0 1px 12px var(--text-light);
 }
 
-.isi-pecahan{
+.isi-pecahan {
     padding: 5px;
 }
 
@@ -70,20 +70,24 @@
     border: 1px solid var(--primary);
     border-radius: 1rem;
     cursor: pointer;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.18);
-    transition: transform 0.18s cubic-bezier(.22,1,.36,1);
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.18);
+    transition: transform 0.18s cubic-bezier(.22, 1, .36, 1);
     z-index: 2;
     outline: none;
     width: fit-content;
+    text-decoration: none; /* Added for the <a> tag as a button */
+    color: inherit; /* Added to ensure text color is inherited or explicitly set */
+    align-items: center; /* Added for vertical alignment if it contains text/icons */
+    justify-content: center; /* Added for horizontal alignment if it contains text/icons */
 }
 
-.tombol:hover, .tombol:focus {
+.tombol:hover,
+.tombol:focus {
     background: var(--buttton-hover);
     border-color: var(--primary);
     transform: translateY(-3px) scale(1.04);
 }
 
-/* Trademark */
 .section {
     display: flex;
     flex-direction: column;
@@ -125,9 +129,9 @@
     position: relative;
     overflow: hidden;
     border-radius: 1rem;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.28), 0 1.5px 0 var(--primary) inset;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.28), 0 1.5px 0 var(--primary) inset;
     padding: 1px;
-    transition: transform 0.25s cubic-bezier(.22,1,.36,1), box-shadow 0.25s, border 0.25s;
+    transition: transform 0.25s cubic-bezier(.22, 1, .36, 1), box-shadow 0.25s, border 0.25s;
     z-index: 1;
     flex: 1 1 30%;
     min-width: 260px;
@@ -145,7 +149,7 @@
     transition: background 300ms ease-in-out;
     z-index: 2;
     width: 100%;
-    height: 100%;    
+    height: 100%;
 }
 
 .card:hover {
@@ -171,7 +175,7 @@
     text-shadow: 0 1px 8px #18181c;
 }
 
-.blob{
+.blob {
     filter: blur(40px);
     position: absolute;
     z-index: -1;
@@ -184,7 +188,7 @@
     will-change: transform;
 }
 
-.fakeblob{
+.fakeblob {
     position: absolute;
     z-index: -1;
     top: 0;
@@ -196,8 +200,7 @@
     pointer-events: none;
 }
 
-/* Carousel */
-.akhir{
+.akhir {
     position: relative;
     width: 100%;
     height: 100%;
@@ -212,7 +215,7 @@
     color: var(--primary);
 }
 
-.carousel{
+.carousel {
     position: relative;
     display: flex;
     align-items: center;
@@ -239,11 +242,12 @@
     padding: 0;
 }
 
-.button-list > * {
+.button-list>* {
     pointer-events: auto;
 }
 
-.carousel-btn, .carousel-mute{
+.carousel-btn,
+.carousel-mute {
     display: flex;
     background: var(--card-bg);
     border: none;
@@ -259,7 +263,7 @@
     transition: all 0.2s;
 }
 
-.carousel-mute{
+.carousel-mute {
     position: absolute;
     right: 0px;
     bottom: 5rem;
@@ -269,12 +273,13 @@
     line-height: 0;
 }
 
-.carousel-btn:hover, .carousel-mute:hover{
+.carousel-btn:hover,
+.carousel-mute:hover {
     background: var(--primary);
     transform: scale(1.08);
 }
 
-.carousel-track{
+.carousel-track {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -291,10 +296,9 @@
     transform: translate(-50%, -50%) scale(0.7) rotateY(0deg);
     opacity: 0.3;
     z-index: 1;
-    transition:
-        left 0.6s cubic-bezier(.22,1,.36,1),
-        transform 0.6s cubic-bezier(.22,1,.36,1),
-        opacity 0.5s cubic-bezier(.22,1,.36,1),
+    transition: left 0.6s cubic-bezier(.22, 1, .36, 1),
+        transform 0.6s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.5s cubic-bezier(.22, 1, .36, 1),
         box-shadow 0.4s,
         filter 0.4s;
     pointer-events: none;
@@ -302,7 +306,7 @@
     will-change: left, transform, opacity, filter;
 }
 
-.carousel-item img{
+.carousel-item img {
     width: 300px;
     object-fit: cover;
     border-radius: 40px;
@@ -313,7 +317,7 @@
 }
 
 .carousel-item.active {
-    left: 50%; /* Add this line */
+    left: 50%;
     transform: translate(-50%, -50%) scale(1.1) rotateY(0deg);
     opacity: 1;
     z-index: 3;
@@ -326,69 +330,71 @@
 }
 
 .carousel-item.prev,
-.carousel-item.next{
+.carousel-item.next {
     opacity: 0.7;
     z-index: 2;
     filter: blur(0.5px) grayscale(10%);
     transform: translate(-50%, -50%) scale(0.85);
 }
 
-.carousel-item.prev{
+.carousel-item.prev {
     left: 30%;
 }
 
-.carousel-item.next{
+.carousel-item.next {
     left: 70%;
 }
 
-.carousel-item:not(.active):not(.prev):not(.next){
+.carousel-item:not(.active):not(.prev):not(.next) {
     opacity: 0;
     pointer-events: none;
     z-index: 1;
 }
 
-.carousel-info{
+.carousel-info {
     text-align: center;
     margin-top: 8px;
     margin-bottom: 40px;
 }
 
-.carousel-title{
+.carousel-title {
     color: #a0182f;
     margin-bottom: 4px;
     margin-top: 0;
     letter-spacing: 1px;
 }
 
-.carousel-desc{
+.carousel-desc {
     max-width: 90vw;
     margin: 0 auto;
 }
 
 @media screen and (max-width: 799px) {
-    .awal-isi, .section, .akhir {
+    .awal-isi,
+    .section,
+    .akhir {
         padding: 2rem;
     }
 
-    .nama{
+    .nama {
         gap: 4px;
     }
 
-    .pecahan{
+    .pecahan {
         gap: 4px;
     }
 
-    .carousel{
+    .carousel {
         max-width: 100vw;
         gap: 4px;
         min-height: 240px;
     }
 
-    .carousel-track{
+    .carousel-track {
         height: 180px;
     }
 
-    .carousel-item img{
+    .carousel-item img {
         width: 220px;
         height: 220px;
         border-radius: 16px;
@@ -403,13 +409,12 @@
     .button-list {
         justify-content: center;
         gap: 1rem;
-        top: 120%; 
+        top: 120%;
     }
 
-    .carousel-mute{
+    .carousel-mute {
         position: static;
         right: auto;
         bottom: auto;
     }
-
 }

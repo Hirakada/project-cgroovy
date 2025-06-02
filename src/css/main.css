@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
-/* Dark Theme */
-[data-theme="dark"] {
+:root {
   --primary: #A0182F;
   --primary-rgb: 224, 62, 62;
   --primary-hover: #B73232;
@@ -73,7 +72,6 @@ button {
   font-size: 0.8rem;
 }
 
-/* Header */
 header {
   position: sticky;
   top: 0;
@@ -119,11 +117,18 @@ header {
   flex: 1;
   width: 100%;
   padding-left: 38px;
-  border: 0px solid var(--border-color);
+  border: 1px solid transparent; 
   border-radius: 8px;
   height: calc(52px - 1rem);
   background-color: var(--primary-background);
   color: var(--text-light);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(var(--primary-rgb), 0.2);
+  outline: none;
 }
 
 .fa--search {
@@ -138,13 +143,13 @@ header {
   font-size: 20px;
   z-index: 1;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1664 1664'%3E%3Cpath fill='%23616060' d='M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90'/%3E%3C/svg%3E");
+  transition: background-image 0.3s ease;
 }
 
 .search-bar input:focus + .fa--search {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1664 1664'%3E%3Cpath fill='%23de1b28' d='M1152 704q0-185-131.5-316.5T704 256T387.5 387.5T256 704t131.5 316.5T704 1152t316.5-131.5T1152 704m512 832q0 52-38 90t-90 38q-54 0-90-38l-343-342q-179 124-399 124q-143 0-273.5-55.5t-225-150t-150-225T0 704t55.5-273.5t150-225t225-150T704 0t273.5 55.5t225 150t150 225T1408 704q0 220-124 399l343 343q37 37 37 90'/%3E%3C/svg%3E");
 }
 
-/* Navigation */
 .nav-bar ul {
   display: flex;
   list-style: none;
@@ -159,6 +164,7 @@ header {
   text-decoration: none;
   color: var(--text-light);
   font-size: .8rem;
+  transition: color 0.3s ease;
 }
 
 .nav-bar a:hover {
@@ -169,6 +175,7 @@ header {
   display: none;
   position: relative;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .sign-in button {
@@ -186,23 +193,27 @@ header {
   color: var(--primary);
 }
 
-/* Main Content */
 main {
   display: block;
   min-height: calc(100vh - 52px);
   flex: 1 0 auto;
 }
 
-/* Footer */
 footer {
   background-color: var(--card-bg);
+  padding-top: 2rem;
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  padding: 2rem 6rem;
+  padding: 0 6rem 2rem 6rem;
   align-items: start;
+  gap: 2rem;
+}
+
+.footer-section {
+    padding-bottom: 1rem;
 }
 
 .footer-logo {
@@ -217,11 +228,14 @@ footer {
 }
 
 .footer-logo p{
-  width: 30%;
+  width: 100%;
+  max-width: 250px;
 }
 
 .footer-content h3 {
   margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(var(--text-light-rgb), 0.1);
 }
 
 .footer-content ul {
@@ -229,14 +243,14 @@ footer {
   padding: 0;
 }
 
+.footer-content ul li {
+  margin-bottom: 0.5rem;
+}
+
 .footer-content ul li a {
   text-decoration: none;
   color: var(--text-light);
   transition: color 0.3s ease;
-}
-
-.footer-content ul li a:hover {
-  color: var(--primary);
 }
 
 .footer-content ul li a:hover {
@@ -250,9 +264,10 @@ footer {
 }
 
 .contact-icon {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--text-light);
   vertical-align: middle;
+  margin-right: 0.25rem;
 }
 
 .footer-contact p {
@@ -265,6 +280,8 @@ footer {
   text-align: center;
   padding: 1rem 0;
   color: var(--text-muted);
+  border-top: 1px solid var(--border-color);
+  margin-top: 1rem;
 }
 
 @media screen and (max-width: 799px) {
@@ -301,28 +318,14 @@ footer {
     font-size: 0.7rem;
   }
 
-  /* Header */
   header {
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 52px;
-    padding: 2rem;
-    background: var(--primary-background);
-    border-bottom: 1px solid var(--border-color);
-    z-index: 10;
+    padding: 1rem;
   }
 
   .header-content {
-    display: flex;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
   }
 
-  /* Navigation */
   nav, .sign-in {
     display: none;
   }
@@ -336,15 +339,20 @@ footer {
     flex-direction: column;
     position: absolute;
     top: 100%;
+    /* Perubahan di sini: Mengubah right menjadi 0 */
     right: 0;
+    transform: translateY(10px);
     background-color: var(--primary-background);
     border-radius: 0.5rem;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
     transition: all 0.3s ease;
     z-index: 100;
+    width: auto;
+    min-width: 150px;
+    /* Sesuaikan max-width jika perlu agar tidak ada padding ekstra yang mendorongnya keluar */
+    max-width: calc(100vw - 1rem); /* Jika header memiliki padding 1rem, maka kurangi 1rem dari total lebar viewport */
   }
 
   .hamburger-dropdown.show {
@@ -366,19 +374,48 @@ footer {
     padding: 10px 16px;
     text-decoration: none;
     color: var(--text-light);
+    text-align: center;
   }
 
-  /* Footer */
+  .mobile-sign-in-wrapper {
+      padding: 10px 16px;
+      text-align: center;
+  }
+
+  .sign-in-mobile button {
+      display: block;
+      width: 100%;
+      max-width: 200px;
+      margin: 5px auto 0 auto;
+      text-align: center;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 6px;
+      background: var(--primary);
+      font-weight: bold;
+      color: var(--text-light);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 0.7rem;
+  }
+
+  .sign-in-mobile button:hover {
+    background: var(--button-hover);
+    color: var(--primary);
+  }
+
+  footer {
+    padding-top: 1.5rem;
+  }
+
   .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 1fr);
-    padding: 2rem;
-    align-items: start;
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    gap: 1.5rem;
   }
 
   .footer-content h3 {
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
   }
 
   .footer-contact p {
@@ -386,7 +423,7 @@ footer {
   }
 
   .footer-bottom {
-    text-align: start;
-    padding: 0 0 2rem 2rem;
+    text-align: center;
+    padding: 1rem 1.5rem;
   }
 }

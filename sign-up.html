@@ -16,7 +16,6 @@
         </video>
         <div class="video-overlay"></div>
     </div>
-    <!-- Main Content -->
     <main class="cgroovy-main">
         <div class="main-content">
             <div class="container" id="sign-up">
@@ -29,27 +28,27 @@
                         <div class="form-group">
                             <div class="input-group" id="name-group">
                                 <input type="text" id="name" name="name" placeholder="Name">
-                                <span class="mdi--user"></span>
+                                <iconify-icon icon="mdi:user"></iconify-icon>
                             </div>
                             <div class="input-group" id="email-group">
                                 <input type="text" id="email" name="email" placeholder="Email">
-                                <span class="mdi--email"></span>
+                                <iconify-icon icon="mdi:email"></iconify-icon>
                             </div>
                             <div class="input-group" id="password-group">
                                 <input type="password" id="password" name="password" placeholder="Password" >
-                                <span class="mdi--password"></span>
+                                <iconify-icon icon="mdi:password"></iconify-icon>
                             </div>
                             <div class="input-group" id="age-group">
-                                <input type="text" id="age" name="age" placeholder="Age">
-                                <span class="uis--calender"></span>
+                                <input type="date" id="age" name="age" placeholder="DD/MM/YYYY">
+                                <iconify-icon icon="uil:calender"></iconify-icon>
                             </div>
                             <div class="input-group" id="gender-group">
                                 <div class="input-group" id="male-group">
                                     <label class="radio-label">
                                         <input type="radio" name="gender" value="male"/>
                                         <div class="radio-content">
-                                          <span class="mdi--face-male"></span>
-                                          <span class="label-text">Male</span>
+                                            <iconify-icon icon="mdi:face-male"></iconify-icon>
+                                            <span class="label-text">Male</span>
                                         </div>
                                     </label>
                                 </div>
@@ -57,8 +56,8 @@
                                     <label class="radio-label">
                                         <input type="radio" name="gender" value="female"/>
                                         <div class="radio-content">
-                                          <span class="mdi--face-female"></span>
-                                          <span class="label-text">Female</span>
+                                            <iconify-icon icon="mdi:face-female"></iconify-icon>
+                                            <span class="label-text">Female</span>
                                         </div>
                                     </label>
                                 </div>
@@ -68,12 +67,12 @@
                     </div>
                 </form>
                 <div class="account">
-                    <p>Have an account? <a class="label" id="sign-in" href="sign-in.html">Sign In</a></p>
+                    <p>Have an account? <a class="label-button" id="sign-in" href="sign-in.html">Sign In</a></p>
                 </div>
             </div>
         </div>
     </main>
 
     <script type="module" src="./src/js/main.js"></script>
-</body>
+    </body>
 </html>

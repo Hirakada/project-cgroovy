@@ -143,7 +143,7 @@ I'm in love with the shape of you`
     artist: "KISS OF LIFE",
     genre: "kpop",
     image: "./src/image/JPG/Cover/Live, Love, Laugh.jpg",
-    audio: "./src/audio/kpop/KISS OF LIFE 'Live, Love, Laugh'.mp3",
+    audio: "./src/audio/kpop/KISS OF LIFE - Live, Love, Laugh.mp3",
     lyric: `Talk to me
 You know it's all for you
 You know it's all for you
@@ -386,7 +386,7 @@ No, I can't sleep until I feel your touch`
     artist: "BLACKPINK",
     genre: "kpop",
     image: "./src/image/JPG/Cover/Pink Venom.jpg",
-    audio: "./src/audio/kpop/BLACKPINK - ‘Pink Venom’.mp3",
+    audio: "./src/audio/kpop/BLACKPINK - Pink Venom.mp3",
     lyric: `BLACKPINK
 BLACKPINK
 BLACKPINK
@@ -507,7 +507,7 @@ Rather be in Hell than alone`
     artist: "NewJeans (뉴진스)",
     genre: "kpop",
     image: "./src/image/JPG/Cover/OMG New Jeans.jpg",
-    audio: "./src/audio/kpop/NewJeans (뉴진스) 'OMG'.mp3",
+    audio: "./src/audio/kpop/NewJeans - OMG.mp3",
     lyric: `이 노래는 it's about you, baby
 Only you
 You, you, you, you, you, you, you
