@@ -27,7 +27,7 @@ function searchSongs() {
             if (event.key === "Enter") {
                 const query = searchInput.value.trim();
                 if (query) {
-                    window.location.href = `./collection.html?search=${encodeURIComponent(query)}`;
+                    window.location.href = `../../collection.html?search=${encodeURIComponent(query)}`;
                 } else {
                     alert("Please enter a song name to search.");
                 }
@@ -84,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     if (!window.location.pathname.includes('sign-up') && !window.location.pathname.includes('sign-in')) {
-        loadHTMLContent("header-container", "./src/component/header.html");
-        loadHTMLContent("footer-container", "./src/component/footer.html");
+        loadHTMLContent("header-container", "../src/component/header.html");
+        loadHTMLContent("footer-container", "../src/component/footer.html");
     }
 
     const user = getUser();
