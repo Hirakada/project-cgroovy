@@ -339,7 +339,6 @@ footer {
     flex-direction: column;
     position: absolute;
     top: 100%;
-    /* Perubahan di sini: Mengubah right menjadi 0 */
     right: 0;
     transform: translateY(10px);
     background-color: var(--primary-background);
@@ -351,8 +350,7 @@ footer {
     z-index: 100;
     width: auto;
     min-width: 150px;
-    /* Sesuaikan max-width jika perlu agar tidak ada padding ekstra yang mendorongnya keluar */
-    max-width: calc(100vw - 1rem); /* Jika header memiliki padding 1rem, maka kurangi 1rem dari total lebar viewport */
+    max-width: calc(100vw - 1rem);
   }
 
   .hamburger-dropdown.show {

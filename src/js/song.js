@@ -15,7 +15,7 @@ export function displaySong(songList) {
       const songInfo = document.createElement('div');
       songInfo.classList.add('song-info');
 
-      // Create a horizontal flex container for title and artist
+      // Card
       const songTitleArtistContainer = document.createElement('div');
       songTitleArtistContainer.classList.add('song-title-artist');
 
@@ -42,7 +42,7 @@ export function displaySong(songList) {
       songDiv.appendChild(songInfo);
 
       songDiv.addEventListener('click', function () {
-        window.location.href = `song-detail.html?id=${song.id}`;
+        window.location.href = `../song/song-detail.html?id=${song.id}`;
       });
 
       songsContainer.appendChild(songDiv);
@@ -51,23 +51,3 @@ export function displaySong(songList) {
     songsContainer.innerHTML = "<p style='text-align: center;'>No songs found.</p>";
   }
 }
-
-// document.addEventListener('DOMContentLoaded', function() {  
-//   const songItem = document.getElementById("song-item");
-//   if (songItem) {
-//     const songId = new URLSearchParams(window.location.search).get("id");
-//     const song = songs.find(s => s.id == songId);
-    
-//     if (song) {
-//       const songTitle = document.getElementById("song-title");
-//       const songArtist = document.getElementById("song-artist");
-//       const songLyric = document.getElementById("song-lyric");
-
-//       songTitle.textContent = song.title;
-//       songArtist.textContent = `By ${song.artist}`;
-//       songLyric.textContent = song.lyric;
-//     } else {
-//       console.error("There is no song.");
-//     }
-//   }
-// });

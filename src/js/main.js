@@ -27,7 +27,7 @@ function searchSongs() {
             if (event.key === "Enter") {
                 const query = searchInput.value.trim();
                 if (query) {
-                    window.location.href = `song.html?search=${encodeURIComponent(query)}`;
+                    window.location.href = `../song.html?search=${encodeURIComponent(query)}`;
                 } else {
                     alert("Please enter a song name to search.");
                 }
@@ -37,6 +37,7 @@ function searchSongs() {
 }
 
 function hamburgerMenu() {
+    console.log("hamburgerMenu function is running!");
     const hamburger = document.getElementById('hamburger-icon');
     const dropdown = document.querySelector('.hamburger-dropdown');
 
@@ -68,9 +69,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(data => {
                     container.innerHTML = data;
                     if (containerId === 'header-container') {
+                        hamburgerMenu();
                         handleAuthButton();
                         searchSongs();
-                        hamburgerMenu();
                     }
                 })
                 .catch(error => {
@@ -83,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     if (!window.location.pathname.includes('sign-up') && !window.location.pathname.includes('sign-in')) {
-        loadHTMLContent("header-container", "header.html");
-        loadHTMLContent("footer-container", "footer.html");
+        loadHTMLContent("header-container", "../src/component/header.html");
+        loadHTMLContent("footer-container", "../src/component/footer.html");
     }
 
     const user = getUser();
@@ -102,10 +103,10 @@ document.addEventListener("DOMContentLoaded", function () {
             const name = document.getElementById("name").value.trim();
             const email = document.getElementById("email").value.trim();
             const password = document.getElementById("password").value.trim();
-            const age = parseInt(document.getElementById("age").value, 10);
+            const dob = document.getElementById("age").value;
             const gender = document.querySelector('input[name="gender"]:checked')?.value;
     
-            const result = signUp(name, email, password, age, gender);
+            const result = signUp(name, email, password, dob, gender);
     
             if (result.success) {
                 alert(result.message);

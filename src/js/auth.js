@@ -87,8 +87,9 @@ export function signIn(email, password) {
 export function handleAuthButton() {
     const currentUser = localStorage.getItem("currentUser");
     const authButton = document.getElementById("auth-button");
+    const mobileAuthButton = document.getElementById("auth-button-mobile");
     
-    if (!authButton) {
+    if (!authButton || !mobileAuthButton) {
         console.error("Auth button not found in the DOM.");
         return;
     }
@@ -99,6 +100,10 @@ export function handleAuthButton() {
             authButton.textContent = "SIGN OUT";
             authButton.removeEventListener("click", redirectToSignIn);
             authButton.addEventListener("click", signOut);
+
+            mobileAuthButton.textContent = "SIGN OUT";
+            mobileAuthButton.removeEventListener("click", redirectToSignIn);
+            mobileAuthButton.addEventListener("click", signOut);
         } catch (e) {
             console.error('Error parsing currentUser from localStorage:', e);
             localStorage.removeItem('currentUser');
@@ -107,11 +112,15 @@ export function handleAuthButton() {
         authButton.textContent = "SIGN IN";
         authButton.removeEventListener("click", signOut);
         authButton.addEventListener("click", redirectToSignIn);
+
+        mobileAuthButton.textContent = "SIGN IN";
+        mobileAuthButton.removeEventListener("click", signOut);
+        mobileAuthButton.addEventListener("click", redirectToSignIn);
     }
 }
 
 function redirectToSignIn() {
-    window.location.href = "sign-in.html";
+    window.location.href = "../sign-in.html";
 }
 
 export function signOut(event) {
@@ -119,7 +128,7 @@ export function signOut(event) {
         event.preventDefault();
     }
     localStorage.removeItem("currentUser");
-    window.location.href = "sign-in.html";
+    window.location.href = "../sign-in.html";
 }
 
 export function getUser() {

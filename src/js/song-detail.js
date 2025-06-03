@@ -64,11 +64,11 @@ export function loadSongDetails(songs) {
         nextSongImage.alt = `${nextSong.title} cover`;
 
         nextSongPlayButton.addEventListener("click", function () {
-          window.location.href = `song-detail.html?id=${nextSong.id}`;
+          window.location.href = `./song-detail.html?id=${nextSong.id}`;
         });
 
         audioPlayer.addEventListener("ended", () => {
-          window.location.href = `song-detail.html?id=${nextSong.id}`;
+          window.location.href = `./song-detail.html?id=${nextSong.id}`;
         });
       } else {
         console.error("No next song found.");
