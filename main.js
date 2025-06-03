@@ -27,7 +27,7 @@ function searchSongs() {
             if (event.key === "Enter") {
                 const query = searchInput.value.trim();
                 if (query) {
-                    window.location.href = `./song.html?search=${encodeURIComponent(query)}`;
+                    window.location.href = `./collection.html?search=${encodeURIComponent(query)}`;
                 } else {
                     alert("Please enter a song name to search.");
                 }
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    if (window.location.pathname.includes("song.html")) {
+    if (window.location.pathname.includes("collection.html")) {
         const params = new URLSearchParams(window.location.search);
         const query = params.get("search")?.toLowerCase();
 
