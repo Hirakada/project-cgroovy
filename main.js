@@ -84,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     if (!window.location.pathname.includes('sign-up') && !window.location.pathname.includes('sign-in')) {
-        loadHTMLContent("header-container", "../../src/component/header.html");
-        loadHTMLContent("footer-container", "../../src/component/footer.html");
+        loadHTMLContent("header-container", "../../../src/component/header.html");
+        loadHTMLContent("footer-container", "../../../src/component/footer.html");
     }
 
     const user = getUser();
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
             if (result.success) {
                 alert(result.message);
-                window.location.href = "./sign-in.html"; 
+                window.location.href = "../../sign-in.html"; 
             } else {
                 alert(result.message);
             }
@@ -129,7 +129,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
             if (result.success) {
                 alert(result.message);
-                window.location.href = "index.html";
+                window.location.href = "../../index.html";
             } else {
                 alert(result.message);
             }
