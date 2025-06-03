@@ -84,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     if (!window.location.pathname.includes('sign-up') && !window.location.pathname.includes('sign-in')) {
-        loadHTMLContent("header-container", "../src/component/header.html");
-        loadHTMLContent("footer-container", "../src/component/footer.html");
+        loadHTMLContent("header-container", "../../src/component/header.html");
+        loadHTMLContent("footer-container", "../../src/component/footer.html");
     }
 
     const user = getUser();
