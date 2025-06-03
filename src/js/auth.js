@@ -128,7 +128,7 @@ export function signOut(event) {
         event.preventDefault();
     }
     localStorage.removeItem("currentUser");
-    window.location.href = "../sign-in.html";
+    window.location.href = "./sign-in.html";
 }
 
 export function getUser() {

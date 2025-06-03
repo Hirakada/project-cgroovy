@@ -1,7 +1,7 @@
-import { signUp, signIn, handleAuthButton, getUser } from './auth.js';
-import { songs } from './data.js';
-import { displaySong } from './song.js';
-import { loadSongDetails } from './song-detail.js';
+import { signUp, signIn, handleAuthButton, getUser } from './src/js/auth.js';
+import { songs } from './src/js/data.js';
+import { displaySong } from './src/js/song.js';
+import { loadSongDetails } from './src/js/song-detail.js';
 
 function loadUsers() {
     const users = localStorage.getItem("users");
@@ -27,7 +27,7 @@ function searchSongs() {
             if (event.key === "Enter") {
                 const query = searchInput.value.trim();
                 if (query) {
-                    window.location.href = `../song.html?search=${encodeURIComponent(query)}`;
+                    window.location.href = `./song.html?search=${encodeURIComponent(query)}`;
                 } else {
                     alert("Please enter a song name to search.");
                 }
@@ -84,8 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     if (!window.location.pathname.includes('sign-up') && !window.location.pathname.includes('sign-in')) {
-        loadHTMLContent("header-container", "../src/component/header.html");
-        loadHTMLContent("footer-container", "../src/component/footer.html");
+        loadHTMLContent("header-container", "./src/component/header.html");
+        loadHTMLContent("footer-container", "./src/component/footer.html");
     }
 
     const user = getUser();

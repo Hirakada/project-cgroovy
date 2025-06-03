@@ -42,7 +42,7 @@ export function displaySong(songList) {
       songDiv.appendChild(songInfo);
 
       songDiv.addEventListener('click', function () {
-        window.location.href = `../song/song-detail.html?id=${song.id}`;
+        window.location.href = `./song-detail.html?id=${song.id}`;
       });
 
       songsContainer.appendChild(songDiv);
