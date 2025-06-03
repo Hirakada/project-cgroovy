@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
             if (result.success) {
                 alert(result.message);
-                window.location.href = "sign-in.html"; 
+                window.location.href = "./sign-in.html"; 
             } else {
                 alert(result.message);
             }
