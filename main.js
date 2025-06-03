@@ -1,7 +1,7 @@
-import { signUp, signIn, handleAuthButton, getUser } from '../src/js/auth.js';
-import { songs } from '../src/js/data.js';
-import { displaySong } from '../src/js/song.js';
-import { loadSongDetails } from '../src/js/song-detail.js';
+import { signUp, signIn, handleAuthButton, getUser } from './src/js/auth.js';
+import { songs } from './src/js/data.js';
+import { displaySong } from './src/js/song.js';
+import { loadSongDetails } from './src/js/song-detail.js';
 
 function loadUsers() {
     const users = localStorage.getItem("users");
@@ -27,7 +27,12 @@ function searchSongs() {
             if (event.key === "Enter") {
                 const query = searchInput.value.trim();
                 if (query) {
-                    window.location.href = `../../collection.html?search=${encodeURIComponent(query)}`;
+                    const currentPath = window.location.pathname;
+                    if (currentPath.includes('index.html') || currentPath === '/') {
+                        window.location.href = `./song/collection.html?search=${encodeURIComponent(query)}`;
+                    } else {
+                        window.location.href = `../song/collection.html?search=${encodeURIComponent(query)}`;
+                    }
                 } else {
                     alert("Please enter a song name to search.");
                 }
@@ -37,64 +42,49 @@ function searchSongs() {
 }
 
 function hamburgerMenu() {
-    console.log("hamburgerMenu function is running!");
     const hamburger = document.getElementById('hamburger-icon');
     const dropdown = document.querySelector('.hamburger-dropdown');
 
-    hamburger.addEventListener('click', function () {
-      dropdown.classList.toggle('show');
+    if (hamburger && dropdown) {
+        hamburger.addEventListener('click', function () {
+            dropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.hamburger-menu')) {
+                dropdown.classList.remove('show');
+            }
+        });
+    }
+}
+
+function attachFilterListeners(filteredSongs) {
+    const genreButtons = document.querySelectorAll('.filter-btn');
+    genreButtons.forEach(button => {
+        button.removeEventListener('click', handleGenreFilter);
+        button.addEventListener('click', handleGenreFilter);
     });
 
-    document.addEventListener('click', function (e) {
-      if (!e.target.closest('.hamburger-menu')) {
-        dropdown.classList.remove('show');
-      }
-    });
+    function handleGenreFilter() {
+        document.querySelector('.filter-btn.active')?.classList.remove('active');
+        this.classList.add('active'); 
+
+        const genre = this.getAttribute('data-genre');
+        const genreFiltered = genre === "all"
+            ? filteredSongs 
+            : filteredSongs.filter(song => song.genre.toLowerCase() === genre);
+
+        displaySong(genreFiltered);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     loadUsers();
     setTheme();
-
-    function getComponentPath(filename) {
-        const segments = window.location.pathname.replace(/^\//, '').split('/');
-        let depth = segments.length - 1;
-        if (!segments[segments.length - 1].endsWith('.html')) depth += 1;
-        const prefix = depth > 0 ? '../'.repeat(depth) : './';
-        return `${prefix}src/component/${filename}`;
-    }
-
-    const loadHTMLContent = (containerId, fileName) => {
-        const container = document.getElementById(containerId);
-        if (container) {
-            fetch(fileName)
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    container.innerHTML = data;
-                    if (containerId === 'header-container') {
-                        hamburgerMenu();
-                        handleAuthButton();
-                        searchSongs();
-                    }
-                })
-                .catch(error => {
-                    console.error(`Failed to load ${fileName}:`, error);
-                    alert(`Failed to load ${fileName}. Please try again later.`);
-                });
-        } else {
-            console.error(`Container with ID ${containerId} not found.`);
-        }
-    };
-    
-    if (!window.location.pathname.includes("sign-in.html") && window.location.pathname === `${basePath}/` || window.location.pathname === "/") {
-        console.log("This is the homepage (index.html).");
-        loadHTMLContent("header-container", "./src/component/header.html");
-        loadHTMLContent("footer-container", "./src/component/footer.html");
+    if (!window.location.pathname.includes("sign-in.html") && !window.location.pathname.includes("sign-up.html")) {
+        handleAuthButton();
+        hamburgerMenu();
+        searchSongs();
     }
     
     const user = getUser();
@@ -108,80 +98,63 @@ document.addEventListener("DOMContentLoaded", function () {
     const signUpForm = document.getElementById("sign-up");
     if (signUpForm) {
         signUpForm.addEventListener("submit", function (event) {
-            event.preventDefault(); 
+            event.preventDefault();
             const name = document.getElementById("name").value.trim();
             const email = document.getElementById("email").value.trim();
             const password = document.getElementById("password").value.trim();
             const dob = document.getElementById("age").value;
             const gender = document.querySelector('input[name="gender"]:checked')?.value;
-    
+
             const result = signUp(name, email, password, dob, gender);
-    
+
             if (result.success) {
                 alert(result.message);
-                window.location.href = "../../sign-in.html"; 
+                window.location.href = "./sign-in.html";
             } else {
                 alert(result.message);
             }
         });
     }
-    
+
     const signInForm = document.getElementById("sign-in");
     if (signInForm) {
         signInForm.addEventListener("submit", function (event) {
             event.preventDefault();
-        
+
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
-    
+
             const result = signIn(email, password);
-        
+
             if (result.success) {
                 alert(result.message);
-                window.location.href = "../../index.html";
+                window.location.href = "../index.html";
             } else {
                 alert(result.message);
             }
         });
     }
 
-    if (window.location.pathname.includes("collection.html")) {
+    const currentPath = window.location.pathname;
+
+    if (currentPath.includes("collection.html")) {
         const params = new URLSearchParams(window.location.search);
         const query = params.get("search")?.toLowerCase();
 
-        let filteredSongs = songs;
+        let FilteredSongs = songs;
 
         if (query) {
-            filteredSongs = songs.filter(song =>
+            FilteredSongs = songs.filter(song =>
                 song.title.toLowerCase().includes(query) ||
                 song.artist.toLowerCase().includes(query)
             );
         }
 
-        displaySong(filteredSongs);
-
-        const observer = new MutationObserver(() => {
-            const genreButtons = document.querySelectorAll('.filter-btn');
-            genreButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    document.querySelector('.filter-btn.active')?.classList.remove('active');
-                    button.classList.add('active');
-
-                    const genre = button.getAttribute('data-genre');
-                    const genreFiltered = genre === "all"
-                        ? filteredSongs
-                        : filteredSongs.filter(song => song.genre.toLowerCase() === genre);
-
-                    displaySong(genreFiltered);
-                });
-            });
-        });
-
-        observer.observe(document.body, { childList: true, subtree: true });
+        displaySong(FilteredSongs);
+        attachFilterListeners(FilteredSongs);
     }
 
-    if (window.location.pathname.includes("song-detail.html")) {
+    if (currentPath.includes("song-detail.html")) {
         loadSongDetails(songs);
     }
 });
-

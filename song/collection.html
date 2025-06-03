@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Song Collection - C'Groovy</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="icon" href="../src/image/SVG/C'Groovy Logo Black.svg" type="image/svg+xml" media="(prefers-color-scheme: light")>
+  <link rel="icon" href="../src/image/SVG/C'Groovy Logo White.svg" type="image/svg+xml" media="(prefers-color-scheme: dark")>
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+</head>
+<body class="songs-collection-page">
+    <header class="cgroovy-header">
+        <div class="header-content">
+            <div class="company-wrapper">
+                <div class="logo">
+                    <a id="home" href="../index.html">
+                        <img src="../src/image/SVG/C'Groovy Logo White.svg" alt="" set="">
+                    </a>
+                </div>
+                <div class="company-name">C'Groovy Music</div>
+            </div>
+            <div class="search-bar">
+                <input id="search-input" type="text" placeholder="Search by title or artist">
+                <span class="fa--search"></span>
+            </div>
+            <nav class="nav-bar">
+                <ul class="menu-items">
+                    <li><a id="home" href="../index.html">Home</a></li>
+                    <li><a id="song" href="../song/collection.html">Song</a></li>
+                    <li><a id="about-us" href="../about/about.html">About</a></li>
+                </ul>
+            </nav>
+            <div class="sign-in">
+                <button class="sign-in" type="button" id="auth-button">SIGN IN</button>
+            </div>
+            <div class="hamburger-menu" id="hamburger-menu">
+                <iconify-icon icon="material-symbols:menu-rounded" id="hamburger-icon"></iconify-icon>
+                <div class="hamburger-dropdown">
+                    <ul class="hamburger-menu-items">
+                        <li><a id="home" href="../index.html">Home</a></li>
+                        <li><a id="song" href="../song/collection.html">Song</a></li>
+                        <li><a id="about-us" href="../about/about.html">About</a></li>
+                        <li class="mobile-sign-in-wrapper"> 
+                            <div class="sign-in-mobile"> 
+                                <button type="button" id="auth-button-mobile">SIGN IN</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="cgroovy-main">
+      <div class="main-content">
+        <section class="sub-hero">
+          <h1>Our Song Collection</h1>
+          <p>Discover new music from diverse genres</p>
+        </section>
+        <section class="genre-filter">
+          <button class="filter-btn active" data-genre="all">All Genres</button>
+          <button class="filter-btn" data-genre="pop">Pop</button>
+          <button class="filter-btn" data-genre="rnb">R&B</button>
+          <button class="filter-btn" data-genre="kpop">K-Pop</button>
+        </section>
+        <section class="songs-collection">
+          <div class="songs-grid" id="songs-container"></div>
+        </section>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="cgroovy-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../src/image/SVG/C'Groovy Logo White.svg" alt="" set="">
+                <p>Music to everyone's fingertips since 2016</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../about/about.html">About Us</a></li>
+                    <li><a href="../song/collection.html">Songs</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Contact Us</h3>
+                <p>
+                    <iconify-icon class="contact-icon" icon="mdi:email-outline" aria-hidden="true"></iconify-icon>
+                    <a href="mailto:info@cgroovy.com">info@cgroovy.com</a>
+                </p>
+                <p>
+                    <iconify-icon class="contact-icon" icon="mdi:phone-outline" aria-hidden="true"></iconify-icon>
+                    <a href="tel:+11234567890">+1 (123) 456-7890</a>
+                </p>
+                <p>
+                    <iconify-icon class="contact-icon" icon="mdi:map-marker-outline" aria-hidden="true"></iconify-icon>
+                    123 Music Street, San Francisco, CA
+                </p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 C'Groovy. All rights reserved.</p>
+        </div>
+    </footer>
+    <script type="module" src="../main.js"></script>
+</body>
+</html>

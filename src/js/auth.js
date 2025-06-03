@@ -120,7 +120,11 @@ export function handleAuthButton() {
 }
 
 function redirectToSignIn() {
-    window.location.href = "./sign-in.html";
+    if (window.location.pathname.includes("index.html")) {
+        window.location.href = "./auth/sign-in.html";
+    } else {
+        window.location.href = "../auth/sign-in.html";
+    }
 }
 
 export function signOut(event) {
@@ -128,7 +132,11 @@ export function signOut(event) {
         event.preventDefault();
     }
     localStorage.removeItem("currentUser");
-    window.location.href = "./sign-in.html";
+    if (window.location.pathname.includes("index.html")) {
+        window.location.href = "./auth/sign-in.html";
+    } else {
+        window.location.href = "../auth/sign-in.html";
+    }
 }
 
 export function getUser() {
