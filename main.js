@@ -82,8 +82,9 @@ document.addEventListener("DOMContentLoaded", function () {
             console.error(`Container with ID ${containerId} not found.`);
         }
     };
-
-    if (!window.location.pathname.includes('sign-up') && !window.location.pathname.includes('sign-in')) {
+    
+    if (window.location.pathname.includes("index.html") || window.location.pathname === `${basePath}/` || window.location.pathname === "/") {
+        console.log("This is the homepage (index.html).");
         loadHTMLContent("header-container", "./src/component/header.html");
         loadHTMLContent("footer-container", "./src/component/footer.html");
     }
