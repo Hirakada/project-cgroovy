@@ -1,7 +1,7 @@
-import { signUp, signIn, handleAuthButton, getUser } from './src/js/auth.js';
-import { songs } from './src/js/data.js';
-import { displaySong } from './src/js/song.js';
-import { loadSongDetails } from './src/js/song-detail.js';
+import { signUp, signIn, handleAuthButton, getUser } from '../src/js/auth.js';
+import { songs } from '../src/js/data.js';
+import { displaySong } from '../src/js/song.js';
+import { loadSongDetails } from '../src/js/song-detail.js';
 
 function loadUsers() {
     const users = localStorage.getItem("users");
@@ -56,6 +56,14 @@ document.addEventListener("DOMContentLoaded", function () {
     loadUsers();
     setTheme();
 
+    function getComponentPath(filename) {
+        const segments = window.location.pathname.replace(/^\//, '').split('/');
+        let depth = segments.length - 1;
+        if (!segments[segments.length - 1].endsWith('.html')) depth += 1;
+        const prefix = depth > 0 ? '../'.repeat(depth) : './';
+        return `${prefix}src/component/${filename}`;
+    }
+
     const loadHTMLContent = (containerId, fileName) => {
         const container = document.getElementById(containerId);
         if (container) {
@@ -83,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
     
-    if (window.location.pathname.includes("index.html") || window.location.pathname === `${basePath}/` || window.location.pathname === "/") {
+    if (!window.location.pathname.includes("sign-in.html") && window.location.pathname === `${basePath}/` || window.location.pathname === "/") {
         console.log("This is the homepage (index.html).");
         loadHTMLContent("header-container", "./src/component/header.html");
         loadHTMLContent("footer-container", "./src/component/footer.html");
