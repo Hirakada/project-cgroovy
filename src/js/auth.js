@@ -120,7 +120,7 @@ export function handleAuthButton() {
 }
 
 function redirectToSignIn() {
-    window.location.href = "../sign-in.html";
+    window.location.href = "./sign-in.html";
 }
 
 export function signOut(event) {
