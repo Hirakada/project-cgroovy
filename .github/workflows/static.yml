@@ -11,7 +11,7 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
+  contents: write # <--- CHANGED: Allows the workflow to create files
   pages: write
   id-token: write
 
@@ -31,13 +31,39 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # <--- ADDED: Necessary for 'cicirello/generate-sitemap' to get lastmod dates
+
+      # --- START: NEW STEP FOR SITEMAP & ROBOTS.TXT GENERATION ---
+      - name: Generate sitemap.xml and robots.txt
+        uses: cicirello/generate-sitemap@v1
+        with:
+          # REQUIRED: Replace with your actual GitHub Pages site URL
+          base-url-path: 'https://hirakada.github.io/project-cgroovy/'
+          
+          # Optional: Path to the root of your website within the repository.
+          # '.' means the root of your repository will be crawled.
+          path-to-root: '.' 
+          
+          # Optional: Generates a basic robots.txt file. Set to false if you have a custom one.
+          generate-robots-txt: true
+          
+          # Optional: If you want to add specific rules to robots.txt, you can use this.
+          # It will be appended or used if 'generate-robots-txt' is true and this is set.
+          # robots-txt-content: |
+          #   User-agent: *
+          #   Disallow: /private/
+          #   Sitemap: https://hirakada.github.io/project-cgroovy/sitemap.xml
+      # --- END: NEW STEP FOR SITEMAP & ROBOTS.TXT GENERATION ---
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Upload entire repository. Since sitemap.xml and robots.txt
+          # are generated in the root by the previous step, this is correct.
+          path: '.' 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
